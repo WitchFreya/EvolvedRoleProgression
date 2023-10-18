@@ -1,0 +1,37 @@
+name = "Evolved Role Progression"
+author = "Maid"
+prefix = "erp"
+mainprefix = "x"
+
+[properties]
+author = "Maid"
+url = "https://github.com/WitchFreya/EvolvedRoleProgression"
+
+[hemtt.launch.default]
+workshop = [
+  # dependencies  
+  "450814997", # cba_a3
+  "463939057", # ace
+
+  # tools
+  "2369477168", # advanced developer tools
+
+  # server mods
+  "1768992669", # inidb2
+]
+
+[hemtt.launch.noini]
+workshop = [
+  # dependencies  
+  "450814997", # cba_a3
+  "463939057", # ace
+
+  # tools
+  "2369477168", # advanced developer tools
+]
+
+[hemtt.release]
+archive = false
+
+[files]
+exclude = ["*.inc", "*.md"]
