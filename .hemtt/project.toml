@@ -9,29 +9,33 @@ url = "https://github.com/WitchFreya/EvolvedRoleProgression"
 
 [hemtt.launch.default]
 workshop = [
-  # dependencies  
-  "450814997", # cba_a3
-  "463939057", # ace
+    # dependencies
+    "450814997", # cba_a3
+    "463939057", # ace
 
-  # tools
-  "2369477168", # advanced developer tools
+    # tools
+    "2369477168", # advanced developer tools
 
-  # server mods
-  "1768992669", # inidb2
+    # server mods
+    "1768992669", # inidb2
 ]
 
 [hemtt.launch.noini]
 workshop = [
-  # dependencies  
-  "450814997", # cba_a3
-  "463939057", # ace
+    # dependencies
+    "450814997", # cba_a3
+    "463939057", # ace
 
-  # tools
-  "2369477168", # advanced developer tools
+    # tools
+    "2369477168", # advanced developer tools
 ]
+
+[version]
+git_hash = 0
 
 [hemtt.release]
 archive = false
 
 [files]
+include = ["logo_textless_ca.paa"]
 exclude = ["*.inc", "*.md"]
