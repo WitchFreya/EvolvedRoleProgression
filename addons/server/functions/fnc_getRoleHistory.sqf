@@ -15,6 +15,10 @@
 
 private _db = call FUNC(getDb);
 
+if (isNil "_db") exitWith {
+    0;
+};
+
 private _users = "getSections" call _db apply {
     TRACE_1("Section",_x);
     private _section = _x;

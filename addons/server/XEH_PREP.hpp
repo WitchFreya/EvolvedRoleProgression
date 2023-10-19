@@ -1,2 +1,4 @@
 PREP(getDb);
-PREP(scanRoleHistory);
+PREP(getRoleHistory);
+PREP(saveUnitRolePlaytime);
+PREP(saveAllPlayerPlaytimes);
