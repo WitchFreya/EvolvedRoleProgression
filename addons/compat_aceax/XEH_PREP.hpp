@@ -1,1 +1,1 @@
-PREP(onSelChangedLeft);
+PREP(onLBSelChanged);

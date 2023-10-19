@@ -29,7 +29,7 @@ class ace_arsenal_display
 
         class leftTabContent : RscListBox
         {
-            onLBSelChanged = QUOTE(_this call FUNC(onSelChangedLeft));
+            onLBSelChanged = QUOTE(_this call FUNC(onLBSelChanged));
         };
     };
 };

@@ -1,9 +1,8 @@
 #include "script_component.hpp"
-#include "defines.hpp"
 
 /*
  * Author: Maid
- * Adds additional logic to onSelChangeLeft function from ace.
+ * Verify that the selection happened by the player and then update.
  *
  * Arguments:
  * 0: Left panel control <CONTROL>
@@ -15,11 +14,16 @@
  * Public: No
  */
 
-if (ace_arsenal_currentLeftPanel != IDC_buttonRole) exitWith {
-    TRACE_1("not ours, calling raw",ace_arsenal_currentLeftPanel);
-    _this call ace_arsenal_fnc_onSelChangedLeft;
-};
+params ["_control", "_curSel"];
 
-TRACE_1("onSelChangedLeft",_this);
+if (_curSel < 0) exitWith {};
 
-[QGVAR(roleSelected), _this] call CBA_fnc_localEvent;
+private _selectedRole = _control lbData _curSel;
+private _currentRole = ace_arsenal_center getVariable [QGVARMAIN(role), QUOTE(DEFAULT_ROLE)];
+
+if (!ace_arsenal_leftTabFocus && { _selectedRole != _currentRole }) exitWith {};
+
+private _display = ctrlParent _control;
+[_display, _control, _curSel, configFile >> "CfgRoles" >> _selectedRole] call ace_arsenal_fnc_itemInfo;
+
+[_currentRole, _selectedRole] call FUNC(setPlayerRole);

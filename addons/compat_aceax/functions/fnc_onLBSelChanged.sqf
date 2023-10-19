@@ -22,4 +22,4 @@ if (ace_arsenal_currentLeftPanel != IDC_buttonRole) exitWith {
 
 TRACE_1("onSelChangedLeft",_this);
 
-[QEGVAR(arsenal,roleSelected), _this] call CBA_fnc_localEvent;
+[QEGVAR(arsenal,onSelChangedLeft), _this] call CBA_fnc_localEvent;
