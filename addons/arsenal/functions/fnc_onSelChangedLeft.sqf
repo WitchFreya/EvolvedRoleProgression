@@ -26,4 +26,4 @@ if (!ace_arsenal_leftTabFocus && { _selectedRole != _currentRole }) exitWith {};
 private _display = ctrlParent _control;
 [_display, _control, _curSel, configFile >> "CfgRoles" >> _selectedRole] call ace_arsenal_fnc_itemInfo;
 
-[_currentRole, _selectedRole] call FUNC(setPlayerRole);
+[ace_arsenal_center, _selectedRole] call FUNC(setUnitRole);

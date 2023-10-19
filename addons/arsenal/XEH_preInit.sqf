@@ -14,16 +14,6 @@ ADDON = true;
     // for now i will simply sob
 }] call CBA_fnc_addEventHandler;
 
-#ifdef DEBUG_MODE_FULL
-[QGVAR(leftPanelFilled), {
-    TRACE_1(QGVAR(leftPanelFilled), _this);
-}] call CBA_fnc_addEventHandler;
-
-[QGVAR(onSelChangedLeft), {
-    TRACE_1(QGVAR(onSelChangedLeft), _this);
-}] call CBA_fnc_addEventHandler;
-#endif
-
 [QGVAR(leftPanelFilled), {
     private _currentRole = ace_arsenal_center getVariable [QGVARMAIN(role), QUOTE(DEFAULT_ROLE)];
     params ["_display"];
