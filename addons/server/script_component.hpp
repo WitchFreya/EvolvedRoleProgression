@@ -1,5 +1,5 @@
-#define COMPONENT arsenal
-#define COMPONENT_BEAUTIFIED Arsenal
+#define COMPONENT server
+#define COMPONENT_BEAUTIFIED Server
 #include "\x\erp\addons\main\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL
