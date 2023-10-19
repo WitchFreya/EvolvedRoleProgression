@@ -10,3 +10,18 @@
     #define PREP(fncName) [QPATHTOF(functions\DOUBLES(fnc,fncName).sqf), QFUNC(fncName)] call CBA_fnc_compileFunction
 #endif
 
+#define SCOPE(var0)      \
+    scope = var0;        \
+    scopeCurator = var0; \
+    scopeArsenal = var0
+
+#define META                \
+    dlc = QUOTE(PREFIX);    \
+    author = QUOTE(AUTHOR)
+
+#define ITEM_META(var0) \
+    META;                   \
+    SCOPE(var0)
+
+#define DEFAULT_ROLE Rifleman
+#define BASE_ROLE Default
