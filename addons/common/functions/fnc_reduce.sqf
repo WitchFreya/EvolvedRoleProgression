@@ -1,6 +1,6 @@
 /*
  * Author: Maid
- * Start a debrief.
+ * Array reduce.
  *
  * Arguments:
  * 0: An array of elements <TArr[]>.
