@@ -53,7 +53,7 @@ private _body = [_activeRoles, {
         format ["%1<br/>%2", _acc, _text];
     }, ""] call EFUNC(common,reduce);
     private _next = format [
-        "%1<br/><br/>%2",
+        "<br/>%1<br/>%2",
         _header,
         _content
     ];
