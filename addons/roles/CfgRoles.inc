@@ -1,7 +1,7 @@
 #define A3_RANKS \A3\Ui_f\data\GUI\Cfg\Ranks
 class CfgRoles
 {
-    class BASE_ROLE
+    class Default
     {
         ITEM_META(1);
         icon = QUOTE(A3_RANKS\sergeant_gs);

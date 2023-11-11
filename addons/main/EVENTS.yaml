@@ -1,0 +1,13 @@
+erp_roleChanged:
+    scope: local
+    source: erp_arsenal
+    args:
+        - _unit:
+            type: OBJECT
+            description: Unit whose role changed (usually player)
+        - _oldRole:
+            type: STRING
+            description: The class name of the unit's previous role.
+        - _newRole:
+            type: STRING
+            description: The class name of the unit's new role.

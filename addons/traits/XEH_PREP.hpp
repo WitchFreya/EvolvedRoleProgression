@@ -1,0 +1,2 @@
+PREP(createRoleTraitMap);
+PREP(onRoleChange);
