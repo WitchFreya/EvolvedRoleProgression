@@ -42,6 +42,6 @@ private _body = [_order, {
     };
 
     format ["%1<br/>%2",_prev,_currText];
-}, ""] call EFUNC(common,reduce);
+}, ""] call FUNCMAIN(reduce);
 
 format ["%1<br/><br/>%2", _header, _body];

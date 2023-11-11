@@ -39,7 +39,7 @@ private _unitRoles = [_units, {
     _others pushback _text;
     _acc set [_role, _others];
     _acc;
-}, createHashMap] call EFUNC(common,reduce);
+}, createHashMap] call FUNCMAIN(reduce);
 
 private _activeRoles = keys _unitRoles;
 
@@ -51,14 +51,14 @@ private _body = [_activeRoles, {
         params ["_acc", "_text"];
         if (_acc == "") exitWith {_text};
         format ["%1<br/>%2", _acc, _text];
-    }, ""] call EFUNC(common,reduce);
+    }, ""] call FUNCMAIN(reduce);
     private _next = format [
         "<br/>%1<br/>%2",
         _header,
         _content
     ];
     format ["%1<br/>%2", _acc, _next];
-}, ""] call EFUNC(common,reduce);
+}, ""] call FUNCMAIN(reduce);
 
 private _diarySubject = "roles";
 private _title = "[Active Unit Roles]";

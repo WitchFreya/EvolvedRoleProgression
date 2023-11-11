@@ -5,10 +5,12 @@
  * Updates the traits of a unit based on their role.
  *
  * Arguments:
- * None
+ * 0: Unit <OBJECT> - Unit to update.
+ * 1: Old Role <STRING> - Previous role.
+ * 2: New role <STRING> - The new role
  *
  * Return Value:
- * None
+ * Unit Traits <ARRAY>
  *
  * Example:
  *
@@ -18,9 +20,8 @@
 
 params ["_unit", "_oldRole", "_newRole"];
 
-if (_oldRole == _newRole) exitWith {
-    ERROR_1("Old role and new role cannot be the same",_this);
-    false;
+if (_oldRole == _newRole) then {
+    WARNING_1("Old role and new role were the same",_this);
 };
 
 if (!alive _unit) exitWith {
@@ -28,19 +29,9 @@ if (!alive _unit) exitWith {
     false;
 };
 
-private _traitsRoles = uiNamespace getVariable QGVAR(traits);
-if (isNil "_traitsRoles") exitWith {
-    ERROR_2("Role traits cache was empty",_this,_traitsRoles);
-};
+private _traitsForRole = [_newRole] call FUNC(getTraitsForRole);
 
-private _traitsRole = _traitsRoles get _newRole;
-if (isNil "_traitsRole") exitWith {
-    ERROR_3("Roles cache didn't have new role",_this,_traitsRoles,_traitsRole);
-};
-
-{
-    _unit setUnitTrait [_x, _y];
-    TRACE_3("Setting unit trait",_unit,_x,_y);
-} forEach _traitsRole;
+TRACE_1("TraitsForRole",_traitsForRole);
+[_unit, _traitsForRole] call FUNC(setUnitTraits);
 
 getAllUnitTraits _unit;

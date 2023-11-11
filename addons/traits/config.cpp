@@ -10,7 +10,7 @@ class CfgPatches
         units[] = { };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "erp_main", "erp_roles" };
+        requiredAddons[] = { "erp_main", "erp_roles", "erp_common" };
         author = QUOTE(AUTHOR);
         VERSION_CONFIG;
     };
