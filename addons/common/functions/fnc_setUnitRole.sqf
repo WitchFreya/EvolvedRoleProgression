@@ -14,7 +14,10 @@
  * Public: No
  */
 params ["_unit", "_newRole"];
+private _oldRole = _unit getVariable QGVARMAIN(role);
+if (_oldRole == _newRole) exitWith {
+    TRACE_2("Role already set",_unit,_newRole);
+};
 TRACE_1("Setting role", _this);
-private _oldRole = _unit getVariable [QGVARMAIN(role), QUOTE(DEFAULT_ROLE)];
 _unit setVariable [QGVARMAIN(role), _newRole, true];
 [QGVARMAIN(roleChanged), [_unit, _oldRole, _newRole], _unit] call CBA_fnc_targetEvent;

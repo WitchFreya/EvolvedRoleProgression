@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 /*
  * Author: Maid
- * On respawn, restore unit traits if ACE Restore Gear is set.
+ * Restore unit traits on respawn.
  *
  * Arguments:
  * 0: Unit <OBJECT>
@@ -11,22 +11,13 @@
  * None
  *
  * Example:
- * [ACE_player] call ace_respawn_fnc_handleKilled
+ * [ACE_Player, old_body_lying_on_floor] call erp_traits_fnc_handleRespawn;
  *
  * Public: No
  */
 
 params ["_unit"];
 
-if (!ace_respawn_SavePreDeathgear) exitWith {
-    TRACE_1("Restore not enabled, exiting",ace_respawn_SavePreDeathgear);
-};
-
-private _traits = _unit getVariable [QGVAR(unitTraits), []];
-
-if (count _traits == 0) exitWith {
-    TRACE_1("No traits to restore",_unit);
-};
-
-TRACE_1("Restoring traits",_traits);
-[_unit, _traits] call FUNC(setUnitTraits);
+private _role = _unit getVariable [QGVARMAIN(role), QUOTE(DEFAULT_ROLE)];
+private _traitsForRole = [_role] call FUNC(getTraitsForRole);
+[_unit, _traitsForRole] call FUNC(setUnitTraits);

@@ -23,11 +23,27 @@ if (count _traits == 0) exitWith {
     false;
 };
 
+private _traitsAsArray = if (typeName _traits == 'HASHMAP') then {
+    _traits apply {
+        if (typeName _y == 'ARRAY') then {
+            [_x] + _y;
+        } else {
+            [_x, _y];
+        };
+    };
+} else { _traits; };
+
+TRACE_1("TraitsAsArray",_traitsAsArray);
+
 {
-    _unit setUnitTrait (
-        if (typeName _traits == 'HASHMAP') then {[_x, _y];}
-        else { _x; }
-    );
-} forEach _traits;
+    _unit setUnitTrait _x;
+    _x params ["_trait", "_value"];
+    // ACE movement does silly things with loadcoef.
+    if (_trait == "LoadCoef") then {
+        _unit setVariable ["ace_movement_loadCoef", _value, true];
+    };
+} forEach _traitsAsArray;
+
+_unit setVariable [QGVARMAIN(traits),_traitsAsArray];
 
 true;
