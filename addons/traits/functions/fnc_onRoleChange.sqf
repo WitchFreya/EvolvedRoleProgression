@@ -2,7 +2,7 @@
 
 /**
  * Author: Maid
- * Updates the traits of a unit based on their role.
+ * Updates the properties of a unit based on their role.
  *
  * Arguments:
  * 0: Unit <OBJECT> - Unit to update.
@@ -13,7 +13,7 @@
  * Unit Traits <ARRAY>
  *
  * Example:
- *
+ *  [ACE_player, "Rifleman", "Copilot"] call erp_traits_fnc_onRoleChange;
  *
  * Public: Yes
  */
@@ -29,9 +29,7 @@ if (!alive _unit) exitWith {
     false;
 };
 
-private _traitsForRole = [_newRole] call FUNC(getTraitsForRole);
-
-TRACE_1("TraitsForRole",_traitsForRole);
-[_unit, _traitsForRole] call FUNC(setUnitTraits);
-
-getAllUnitTraits _unit;
+private _propertiesForRole = [_newRole] call FUNC(getPropertiesForRole);
+[_unit, _propertiesForRole] call FUNC(setUnitProperties);
+TRACE_1("Props",_propertiesForRole);
+_propertiesForRole;

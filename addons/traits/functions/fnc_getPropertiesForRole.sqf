@@ -19,10 +19,10 @@
 
 params ["_role", "_default"];
 
-private _traitsCache = uiNamespace getVariable QGVAR(traits);
+private _traitsCache = uiNamespace getVariable QGVAR(roleProperties);
 
 if (isNil "_traitsCache" && {isNil "_default";}) exitWith {
-    ERROR_1("Empty traits cache with no default",_role);
+    ERROR_1("Empty properties cache with no default",_role);
     [];
 };
 

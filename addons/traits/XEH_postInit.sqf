@@ -8,5 +8,5 @@ if (isNil "_role") exitWith {
     ERROR_1("Player had no role",_role);
 };
 
-private _traitsForRole = [_role] call FUNC(getTraitsForRole);
-[player, _traitsForRole] call FUNC(setUnitTraits);
+private _propsForRole = [_role] call FUNC(getProperiesForRole);
+[player, _propsForRole] call FUNC(setUnitProperties);

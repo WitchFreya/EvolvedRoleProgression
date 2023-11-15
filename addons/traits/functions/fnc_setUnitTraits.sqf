@@ -11,7 +11,7 @@
  * Boolean success/fail value.
  *
  * Example:
- * [ACE_player, [["Engineer", true], ["Custom", true, true]] call ace_respawn_fnc_handleKilled
+ * [ACE_player, [["Engineer", true], ["Custom", true, true]] call erp_traits_fnc_setUnitTraits
  *
  * Public: Yes
  */
@@ -38,10 +38,6 @@ TRACE_1("TraitsAsArray",_traitsAsArray);
 {
     _unit setUnitTrait _x;
     _x params ["_trait", "_value"];
-    // ACE movement does silly things with loadcoef.
-    if (_trait == "LoadCoef") then {
-        _unit setVariable ["ace_movement_loadCoef", _value, true];
-    };
 } forEach _traitsAsArray;
 
 _unit setVariable [QGVARMAIN(traits),_traitsAsArray];

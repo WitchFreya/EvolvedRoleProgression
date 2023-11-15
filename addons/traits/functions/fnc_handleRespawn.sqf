@@ -19,5 +19,5 @@
 params ["_unit"];
 
 private _role = _unit getVariable [QGVARMAIN(role), QUOTE(DEFAULT_ROLE)];
-private _traitsForRole = [_role] call FUNC(getTraitsForRole);
-[_unit, _traitsForRole] call FUNC(setUnitTraits);
+private _propertiesForRole = [_role] call FUNC(getPropertiesForRole);
+[_unit, _propertiesForRole] call FUNC(setUnitProperties);
