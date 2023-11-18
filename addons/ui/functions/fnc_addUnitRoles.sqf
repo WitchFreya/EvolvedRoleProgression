@@ -18,7 +18,7 @@ private _parseEntry = {
     #endif
 
     private _uid = getPlayerUID _unit;
-    private _unitHistory = _history get _uid;
+    private _unitHistory = _history getOrDefault [_uid, createHashMap];
     private _name = name _unit;
     private _role = _unit getVariable [QGVARMAIN(role), QUOTE(DEFAULT_ROLE)];
     private _roleCount = _unitHistory getOrDefault [_role, 0];
