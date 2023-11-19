@@ -16,4 +16,4 @@ class CfgPatches
     };
 };
 
-
+#include "gui.hpp"

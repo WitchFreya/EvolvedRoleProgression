@@ -4,5 +4,11 @@
         <Key ID="STR_ERP_UI_OpenRoleMenu">
             <English>Open Role Menu</English>
         </Key>
+        <Key ID="STR_ERP_UI_RoleMenu">
+            <English>Role Menu</English>
+        </Key>
+        <Key ID="STR_ERP_UI_UseRole">
+            <English>Play as Role</English>
+        </Key>
     </Package>
 </Project>
