@@ -22,7 +22,7 @@ if (!hasInterface) exitWith {};
     {
 
     },
-    [DIK_P, [NO_SHIFT, NO_CTRL, WITH_ALT]]
+    [DIK_J, [NO_SHIFT, NO_CTRL, WITH_ALT]]
 ] call CBA_fnc_addKeybind;
 
 #undef WITH_SHIFT
