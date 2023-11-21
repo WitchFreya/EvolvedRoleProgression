@@ -32,7 +32,7 @@ _ctrl lbSortBy [];
 for '_i' from 0 to (lbSize _ctrl) - 1 do {
     private _role = _ctrl lbData _i;
     if (_role == _unitRole) exitWith {
-        GVAR(selectedRoleIdx) = _i;
+        _display setVariable [QGVAR(selectedRole),_role];
         _ctrl lbSetCurSel _i;
     };
 };

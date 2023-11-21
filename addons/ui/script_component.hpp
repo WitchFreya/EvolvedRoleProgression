@@ -27,7 +27,7 @@
 #define IDD_RolesMenu 80085
 
 #define IDC_Title 1200
-#define IDC_PlayButton 1201
+#define IDC_PlayButton IDC_OK
 #define IDC_RolesList 1301
 #define IDC_RoleName 1400
 #define IDC_RoleDetails 1401

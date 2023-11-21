@@ -21,4 +21,5 @@ private _selectedRole = _control lbData _curSel;
 TRACE_1("Selection changed",_selectedRole);
 
 private _rolesDisplay = ctrlParent _control;
+_rolesDisplay setVariable [QGVAR(selectedRole),_selectedRole];
 [_rolesDisplay, _rolesDisplay displayCtrl IDC_RoleDetails, _selectedRole] call FUNC(populateDetails);
