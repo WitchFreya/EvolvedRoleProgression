@@ -60,9 +60,10 @@ class ERP_Role_Menu
             w = QUOTE(POS_W(12));
             h = QUOTE(POS_H(2));
             size = QUOTE(POS_H(0.9));
-            colorBackground[] = IGUI_BCG_COLOR;
+            colorBackground[] = {0.51,0.64,0.8,1};
             colorText[] = IGUI_TEXT_COLOR;
-            colorBackgroundActive[] = IGUI_TACTPING_COLOR;
+            colorBackgroundActive[] = {0.95,0.45,0,1};
+            colorDisabled[] = {0.86,0.89,0.93,1};
         };
 
         class RolesList : RscListBox
