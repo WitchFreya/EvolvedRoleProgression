@@ -1,5 +1,5 @@
 erp_roleChanged:
-    scope: local
+    scope: global
     source: erp_arsenal
     args:
         - _unit:

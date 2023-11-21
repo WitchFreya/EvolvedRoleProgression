@@ -4,4 +4,10 @@ ADDON = false;
 
 ADDON = true;
 
-[QGVARMAIN(roleChanged), { _this call FUNC(onRoleChange); }] call CBA_fnc_addEventHandler;
+[QGVARMAIN(roleChanged), {
+    params ["_unit"];
+    if (_unit != player) exitWith {
+        TRACE_1("Unit was not player, exiting",_this);
+    };
+    _this call FUNC(onRoleChange);
+}] call CBA_fnc_addEventHandler;

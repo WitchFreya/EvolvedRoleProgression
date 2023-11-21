@@ -4,16 +4,35 @@ params ["_display", "_ctrl"];
 
 private _players = call BIS_fnc_listPlayers;
 private _rolesCache = uiNamespace getVariable QEGVAR(roles,cache);
+private _history = missionNamespace getVariable QGVARMAIN(history);
+
+private _fn_addUnit = {
+    params ["_unit", "_ctrl", "_idx"];
+    private _unitName = name _unit;
+    private _role = _unit getVariable QGVARMAIN(role);
+    private _cache = _rolesCache get _role;
+    _ctrl lbAdd _unitName;
+    _ctrl lbSetPicture [_idx, _cache get "icon"];
+    _ctrl lbSetData [_idx, _unitName];
+    private _uid = getPlayerUID _unit;
+    private _rolesHistory = _history getOrDefault [_uid, createHashMap];
+    private _roleHistory = _rolesHistory getOrDefault [_role, 0];
+
+    // build the history tooltip
+    private _msg = if (_roleHistory == 0) then {
+        "This is %1's first op as this role."
+    } else {
+        private _playTime = format ["has played this role %1 times before.", _roleHistory];
+        TRACE_1("history",_roleHistory);
+        "%1 " + _playTime;
+    };
+    private _tooltipHistory = format [_msg, _unitName];
+    private _tooltip = format ["%1 - %2", _cache get "name", _tooltipHistory];
+    _ctrl lbSetTooltip [_idx, _tooltip];
+};
 
 {
-    private _role = _x getVariable QGVARMAIN(role);
-    private _cache = _rolesCache get _role;
-    // TODO: Get role history number
-    private _opNumber = 0;
-    _ctrl lbAdd (name _x);
-    _ctrl lbSetPicture [_forEachIndex, _cache get "icon"];
-    _ctrl lbSetTooltip [_forEachIndex, format ["Op #%1 as %2", _opNumber, _cache get "name"]];
-    _ctrl lbSetData [_forEachIndex, name _x];
+   [_x, _ctrl, _forEachIndex] call _fn_addUnit;
 } forEach _players;
 _ctrl lbSetCurSel -1;
 _ctrl lbSortBy [];
