@@ -7,6 +7,7 @@ class RscButtonMenu;
 class RscControlsGroup;
 class RscControlsGroupNoScrollbars;
 class RscFrame;
+class RscStructuredText;
 
 class ERP_Role_Menu
 {
@@ -50,7 +51,7 @@ class ERP_Role_Menu
     };
 
     class Controls {
-        class PlayAsRoleButton : RscButtonMenu
+        class PlayAsRoleButton : RscButton
         {
             idc = IDC_PlayButton;
             text = CSTRING(UseRole);
@@ -59,10 +60,9 @@ class ERP_Role_Menu
             w = QUOTE(POS_W(12));
             h = QUOTE(POS_H(2));
             size = QUOTE(POS_H(0.9));
-            class Attributes
-            {
-                align = "center";
-            };
+            colorBackground[] = IGUI_BCG_COLOR;
+            colorText[] = IGUI_TEXT_COLOR;
+            colorBackgroundActive[] = IGUI_TACTPING_COLOR;
         };
 
         class RolesList : RscListBox
@@ -72,6 +72,40 @@ class ERP_Role_Menu
             y = QUOTE(POS_Y(2));
             w = QUOTE(POS_W(11));
             h = QUOTE(POS_H(21));
+            onLBSelChanged = QUOTE(_this call FUNC(onLBSelChanged));
+        };
+
+        class RoleName : RscText
+        {
+            idc = IDC_RoleName;
+            text = "Role Details";
+            x = QUOTE(POS_X(14.5));
+            y = QUOTE(POS_Y(2));
+            w = QUOTE(POS_W(11));
+            h = QUOTE(POS_H(1));
+        };
+
+        class RoleDetails : RscControlsGroup
+        {
+            idc = IDC_RoleDetails;
+            x = QUOTE(POS_X(14));
+            y = QUOTE(POS_Y(3));
+            w = QUOTE(POS_W(12));
+            h = QUOTE(POS_H(18));
+
+            class Controls {
+                class Description {
+                    idc = IDC_RoleDescription;
+                    type = CT_STRUCTURED_TEXT;
+                    style = ST_LEFT;
+                    text = "";
+                    x = QUOTE(GUI_GRID_WAbs * 0.02);
+                    y = QUOTE(GUI_GRID_HAbs * 0.02);
+                    w = QUOTE(11 * GUI_GRID_W);
+                    h = QUOTE(17.5 * GUI_GRID_H);
+                    size = 0.04;
+                };
+            };
         };
 
         class UnitRolesList : RolesList

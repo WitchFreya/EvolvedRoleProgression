@@ -8,6 +8,7 @@ class CfgRoles
     {
         ITEM_META(1);
         icon = QUOTE(A3_RANKS\sergeant_gs);
+        description = "The rifleman is the core of the fireteam. Anything that does not come down to a special role is their purview, and they boast a slightly increased carrying capacity to support these tasks.";
         class UnitTraits
         {
             Engineer = UNTRAINED;
@@ -31,6 +32,7 @@ class CfgRoles
     {
         SCOPE(2);
         displayName = "Rifleman";
+        description = "The rifleman is the core of the fireteam. Anything that does not come down to a special role is their purview, and they boast a slightly increased carrying capacity to support these tasks.";
         class UnitTraits : UnitTraits
         {
             LoadCoef = 0.9;

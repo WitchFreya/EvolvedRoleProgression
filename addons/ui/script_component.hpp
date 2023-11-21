@@ -8,7 +8,7 @@
 #ifdef DEBUG_ENABLED_INGAME
     #define DEBUG_MODE_FULL
 #endif
-#ifdef DEBUG_SETTINGS_SERVER
+#ifdef DEBUG_SETTINGS_UI
     #define DEBUG_SETTINGS DEBUG_SETTINGS_INGAME
 #endif
 
@@ -28,5 +28,10 @@
 
 #define IDC_Title 1200
 #define IDC_PlayButton 1201
-#define IDC_RolesList 1202
-#define IDC_UnitRolesList 1203
+#define IDC_RolesList 1301
+#define IDC_RoleName 1400
+#define IDC_RoleDetails 1401
+#define IDC_UnitRolesList 1501
+
+// Inside IDC_RoleDetails
+#define IDC_RoleDescription 1200

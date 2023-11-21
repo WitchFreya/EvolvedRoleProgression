@@ -1,6 +1,10 @@
 PREP(addMyRoleHistory);
 PREP(addUnitRoles);
 PREP(buildUnitRoleRecord);
-PREP(openRoleMenu);
-PREP(onMenuOpen);
+PREP(onLBSelChanged);
 PREP(onMenuClose);
+PREP(onMenuOpen);
+PREP(openRoleMenu);
+PREP(populateDetails);
+PREP(populatePlayerBox);
+PREP(populateRoleBox);

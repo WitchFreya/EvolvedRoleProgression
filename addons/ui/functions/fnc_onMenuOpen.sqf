@@ -18,4 +18,8 @@
 params ["_display"];
 
 private _playButtonCtrl = _display displayCtrl IDC_PlayButton;
-_playButtonCtrl ctrlSetStructuredText parseText (format ["<t align='center' valign='middle'>%1</t>", LLSTRING(UseRole)]);
+[_display, _display displayCtrl IDC_RolesList] call FUNC(populateRoleBox);
+[_display, _display displayCtrl IDC_UnitRolesList] call FUNC(populatePlayerBox);
+
+private _detailsGroup = _display displayCtrl IDC_RoleDetails;
+private _descriptionCtrl = _detailsGroup controlsGroupCtrl IDC_RoleDescription;
