@@ -1,6 +1,7 @@
 #include "script_component.hpp"
 
 #include "CfgEventHandlers.inc"
+#include "ERP_Role_Menu.inc"
 
 class CfgPatches
 {
@@ -15,5 +16,3 @@ class CfgPatches
         VERSION_CONFIG;
     };
 };
-
-#include "gui.hpp"

@@ -2,7 +2,7 @@
 
 params ["_display", "_exitCode"];
 
-if (_exitCode != 1) exitWith {
+if (_exitCode != IDC_OK) exitWith {
     TRACE_1("Exit code indicated noop",_exitCode);
     true;
 };

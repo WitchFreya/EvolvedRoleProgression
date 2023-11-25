@@ -12,7 +12,7 @@ if (!hasInterface) exitWith {};
 #define NO_CTRL false
 #define NO_ALT false
 
-// ALT+P - Open Role Menu
+// Alt+J - Open Role Menu
 [COMPONENT_NAME, QGVAR(openRoleMenu), LLSTRING(OpenRoleMenu),
     // On Press
     {

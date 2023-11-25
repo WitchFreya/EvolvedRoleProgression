@@ -11,9 +11,9 @@ private _fn_addUnit = {
     private _unitName = name _unit;
     private _role = _unit getVariable QGVARMAIN(role);
     private _cache = _rolesCache get _role;
-    _ctrl lbAdd _unitName;
-    _ctrl lbSetPicture [_idx, _cache get "icon"];
-    _ctrl lbSetData [_idx, _unitName];
+    _ctrl lnbAddRow ["", _unitName, ""];
+    _ctrl lnbSetPicture [[_idx, 1], _cache get "icon"];
+    _ctrl lnbSetData [[_idx, 1], _unitName];
     private _uid = getPlayerUID _unit;
     private _rolesHistory = _history getOrDefault [_uid, createHashMap];
     private _roleHistory = _rolesHistory getOrDefault [_role, 0];
@@ -28,11 +28,11 @@ private _fn_addUnit = {
     };
     private _tooltipHistory = format [_msg, _unitName];
     private _tooltip = format ["%1 - %2", _cache get "name", _tooltipHistory];
-    _ctrl lbSetTooltip [_idx, _tooltip];
+    _ctrl lnbSetTooltip [[_idx, 1], _tooltip];
 };
 
 {
    [_x, _ctrl, _forEachIndex] call _fn_addUnit;
 } forEach _players;
-_ctrl lbSetCurSel -1;
-_ctrl lbSortBy [];
+_ctrl lnbSetCurSelRow -1;
+[_ctrl, 1] lnbSortBy [];

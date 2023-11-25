@@ -2,6 +2,7 @@ class RscText;
 class RscButton;
 class RscPicture;
 class RscListBox;
+class RscListNBox;
 class RscActivePicture;
 class RscButtonMenu;
 class RscControlsGroup;
@@ -110,10 +111,16 @@ class ERP_Role_Menu
             };
         };
 
-        class UnitRolesList : RolesList
+        class UnitRolesList : RscListNBox
         {
             idc = IDC_UnitRolesList;
             x = QUOTE(POS_X(27.5));
+            y = QUOTE(POS_Y(2));
+            w = QUOTE(POS_W(11));
+            h = QUOTE(POS_H(21));
+            columns[] = {0, 0, 0.95};
+            drawSideArrows = 0;
+            disableOverflow = 1;
         };
     };
 };
