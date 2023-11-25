@@ -61,6 +61,7 @@ class ERP_Role_Menu
             h = QUOTE(POS_H(2));
             size = QUOTE(POS_H(0.9));
             colorBackground[] = {0.51,0.64,0.8,1};
+            colorFocused[] = {0.51,0.64,0.8,1};
             colorText[] = IGUI_TEXT_COLOR;
             colorBackgroundActive[] = {0.95,0.45,0,1};
             colorDisabled[] = {0.86,0.89,0.93,1};
@@ -116,16 +117,3 @@ class ERP_Role_Menu
         };
     };
 };
-
-
-// class ERP_UnitRolesList: RscListbox
-// {
-// 	idc = IDC_ERP_ROLEMENU_ERP_UNITROLESLIST;
-// 	x = 27.5 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X;
-// 	y = 2.5 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y;
-// 	w = 11 * GUI_GRID_CENTER_W;
-// 	h = 21 * GUI_GRID_CENTER_H;
-// };
-// ////////////////////////////////////////////////////////
-// // GUI EDITOR OUTPUT END
-// ////////////////////////////////////////////////////////
