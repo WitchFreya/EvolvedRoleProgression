@@ -1,1 +1,3 @@
-PREP(get);
+PREP(getDb);
+PREP(read);
+PREP(write);

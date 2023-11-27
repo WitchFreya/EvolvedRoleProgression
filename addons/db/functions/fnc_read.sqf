@@ -2,15 +2,17 @@
 
 /*
  * Author: Maid
- * Retrieve an inidb2 instance to execute commands against.
+ * Retrieve from the inidbi instance and cache if it's already been queried.
  *
  * See https://github.com/code34/inidbi2/blob/master/%40inidbi2/DOCUMENTATION.txt.
  *
  * Arguments:
- * None
+ * 0: INIDBI2 instance <CODE>
+ * 1: DB Section <STRING> - If provided, it will scope to the section. If nil, it will return all sections.
+ * 2: Key <STRING> - If provided, it will return the value at the section>key. If nil, it will return all keys.
  *
  * Return Value:
- * inidb2 <INIDBI2>
+ * Either a list of sections, a list of keys, or the data at a section.key.
  *
  * Public: No
  */
