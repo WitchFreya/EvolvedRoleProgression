@@ -32,12 +32,15 @@ private _valueFormat = "- <font color='#FACADE'>%1</font> - <font face='EtelkaMo
 private _header = format [_headerFormat, name _unit];
 
 private _body = [_order, {
-    params ["_prev", "_curr"];
-    private _role = _roles get _curr;
+    params ["_bodyStr", "_roleName"];
+    private _role = _roles get _roleName;
+    TRACE_1("_role",_role);
     private _name = _role get "name";
-    private _opsAsRole = _myHistory getOrDefault [_curr, 0];
+    TRACE_1("_name",_name);
+    private _opsAsRole = _myHistory getOrDefault [_roleName, 0];
+    TRACE_1("_opsAsRole",_opsAsRole);
     private _currText = format [_valueFormat, _name, _opsAsRole];
-    if (_prev == "") exitWith {
+    if (_bodyStr == "") exitWith {
         _currText;
     };
 
