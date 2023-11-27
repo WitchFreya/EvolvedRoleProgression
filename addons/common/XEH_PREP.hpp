@@ -1,2 +1,3 @@
-PREPMAIN(reduce);
 PREP(setUnitRole);
+PREPMAIN(noop);
+PREPMAIN(reduce);
