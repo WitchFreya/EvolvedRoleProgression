@@ -26,8 +26,22 @@ params [
 
 ASSERT_FALSE(isNil {_section},"Section cannot be empty");
 ASSERT_FALSE(isNil {_key},"Key cannot be empty");
+ASSERT_DB(_db,"Database is unusable");
+
+private _now = "getTimestamp" call _db;
+if (!([_db] call FUNC(exists))) then {
+    ["write", ["$metadata", "$createdAt", _now]] call _db;
+};
 
 // All writes wipe the cache—it's just more practical.
 GVAR(cache) = createHashMap;
 
-["write", [_section, _key, _value]] call _db;
+[_section, _key, _value] call FUNC(sterilize) params ["_safeSection", "_safeKey", "_safeValue"];
+
+if (!([_db, _safeSection, _safeKey] call FUNC(exists))) then {
+    ["write", [_safeSection, "$createdAt", _now]] call _db;
+};
+
+["write", [_safeSection, _safeKey, _safeValue]] call _db;
+["write", [_safeSection, "$updatedAt", _now]] call _db;
+["write", ["$metadata", "$updatedAt", _now]] call _db;

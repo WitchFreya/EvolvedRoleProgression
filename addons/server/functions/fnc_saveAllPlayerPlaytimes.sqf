@@ -19,7 +19,7 @@ private _players = call BIS_fnc_listPlayers;
     private _name = name _x;
     private _role = _x getVariable [QGVARMAIN(role), QUOTE(DEFAULT_ROLE)];
     TRACE_3("Saving player to db", _uid, _name, _role);
-    private _result =[_uid, _name, _role] call FUNC(saveUnitRolePlaytime);
+    private _result = [_uid, _name, _role] call FUNC(saveUnitRolePlaytime);
     if (!result) then {
         ERROR_1("Saving failed",_result);
     };

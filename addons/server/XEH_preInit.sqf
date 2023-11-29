@@ -7,3 +7,5 @@ if (is3DEN) exitWith {};
 
 private _history = call FUNC(getRoleHistory);
 missionNamespace setVariable [QGVARMAIN(history), _history, true];
+
+addMissionEventHandler ["PlayerConnected", FUNC(onPlayerConnected)];

@@ -23,12 +23,18 @@ params [
     , ["_key", nil, [nil, ""]]
 ];
 
+ASSERT_DB(_db,"Database is unusable");
+
 private _args = switch true do {
     case (isNil "_section"): {"getSections"};
     case (isNil "_key"): {["getKeys", _section]};
     default {["read", [_section, _key]]};
 };
 
-private _cacheKey = _args;
+private _cacheValue = GVAR(cache) get _args;
 
-GVAR(cache) getOrDefault [_args, _args call _db, true];
+if (!isNil {_cacheValue}) exitWith {_cacheValue};
+private _value = _args call FUNC(sterilize) call _db call FUNC(desterilize);
+
+GVAR(cache) set [_args, _value];
+_value;

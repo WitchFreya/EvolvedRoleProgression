@@ -13,3 +13,5 @@
 #endif
 
 #include "\x\erp\addons\main\script_macros.hpp"
+
+#define ASSERT_DB(db,msg) ASSERT_FALSE(isNil {"getVersion" call db},msg)
