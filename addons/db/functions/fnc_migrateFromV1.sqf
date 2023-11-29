@@ -14,30 +14,27 @@
  */
 
 private _rpDb = ["roleProgression"] call FUNC(getDb);
-private _coreDb = [QGVARMAIN(core)] call FUNC(getDb);
+private _coreDb = call FUNC(getCoreDb);
 
 private _playerIds = [_rpDb] call FUNC(read);
 
 private _fnc_migratePlayerId = {
-    private _uid = _x;
+    params ["_rpDb", "_coreDb", "_uid"];
     private _roles = [_rpDb, _uid] call FUNC(read) select { _x != "name"; };
-    private _myDbName = format ["%1_%2", QGVARMAIN(data), _uid];
-    TRACE_1("DB Name",_myDbName);
-    private _myDb = [_myDbName] call FUNC(getDb);
-    private _fnc_write = { ([_myDb] + _this) call FUNC(write) };
+    private _myDb = [_uid] call FUNC(getUnitDb);
     private _myName = [_rpDb, _uid, "name"] call FUNC(read);
     [_myDb, "$metadata", "playerName", _myName] call FUNC(write);
 
     private _fnc_migrateRole = {
-        private _role = _x;
+        params ["_rpDb", "_myDb", "_uid", "_role"];
         private _count = [_rpDb, _uid, _role] call FUNC(read);
         ASSERT_TRUE(IS_NUMBER(_count),"Invalid value for role");
         [_myDb, _role, "legacy_opCount", _count] call FUNC(write);
         [_myDb, _role, "certificationType", "Certified"] call FUNC(write);
     };
 
-    _fnc_migrateRole forEach _roles;
+    { [_rpDb, _myDb, _uid, _x] spawn _fnc_migrateRole; } forEach _roles;
     [_coreDb, _uid, "name", _myName] call FUNC(write);
 };
 
-_fnc_migratePlayerId forEach _playerIds;
+{ [_rpDb, _coreDb, _x] spawn _fnc_migratePlayerId } forEach _playerIds;
