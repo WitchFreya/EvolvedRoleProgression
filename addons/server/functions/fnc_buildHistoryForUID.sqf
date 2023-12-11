@@ -23,11 +23,11 @@ private _cb_toRoleMap = {
   private _roleName = _x;
   private _legacyOpCount = READ_PROP("legacy_OpCount",0);
   private _ops = READ_PROP("ops",[]);
-  private _certType = READ_PROP("certificationType","Untrained");
+  private _certificationType = READ_PROP("certificationType","Untrained");
 
   private _opCount = _legacyOpCount + count _ops;
   [_roleName, createHashMapFromArray [
-    ["ops",_ops],
+    ["ops", _ops],
     ["opCount", _opCount],
     ["certificationType", _certificationType]
   ]];
@@ -38,5 +38,5 @@ private _history = createHashMapFromArray (_rolesCache apply _cb_toRoleMap);
 
 #undef READ_PROP
 
-TRACE_1("History build",_history);
+TRACE_1("History built",_history);
 _history;
