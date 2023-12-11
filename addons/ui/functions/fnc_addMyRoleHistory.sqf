@@ -17,7 +17,7 @@
 
 private _diarySubject = "roles";
 if (!(player diarySubjectExists _diarySubject)) then {
-    player createDiarySubject [_diarySubject, "Roles", QPATHTOEF(arsenal,data\sws_icon_howl_ca.paa)];
+  player createDiarySubject [_diarySubject, "Roles", QPATHTOEF(arsenal,data\sws_icon_howl_ca.paa)];
 };
 private _title = "[My Role History]";
 
@@ -25,7 +25,7 @@ private _body = [player] call FUNC(buildUnitRoleRecord);
 
 private _previousRecord = player getVariable QGVAR(myRoleHistoryRecord);
 if (!isNull _previousRecord) then {
-    player removeDiaryRecord [_diarySubject, _previousRecord];
+  player removeDiaryRecord [_diarySubject, _previousRecord];
 };
 private _newRecord = player createDiaryRecord [_diarySubject, [_title, _body]];
 player setVariable [QGVAR(myRoleHistoryRecord), _newRecord];

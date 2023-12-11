@@ -2,7 +2,7 @@
 
 /*
  * Author: Maid
- * Retrieve from the inidbi instance and cache if it's already been queried.
+ * Retrieve from the inidbi instance and cache.
  *
  * See https://github.com/code34/inidbi2/blob/master/%40inidbi2/DOCUMENTATION.txt.
  *
@@ -26,9 +26,9 @@ params [
 ASSERT_DB(_db,"Database is unusable");
 
 private _args = switch true do {
-    case (isNil "_section"): {"getSections"};
-    case (isNil "_key"): {["getKeys", _section]};
-    default {["read", [_section, _key]]};
+    case (isNil {_section}): {"getSections"};
+    case (isNil {_key}): {["getKeys", _section]};
+    default {["read", [_section, _key, NOTHING]]};
 };
 
 private _cacheValue = GVAR(cache) get _args;

@@ -5,5 +5,6 @@ PREP(getDb);
 PREP(getUnitDb);
 PREP(migrateFromV1);
 PREP(read);
+PREP(readOrDefault);
 PREP(sterilize);
 PREP(write);

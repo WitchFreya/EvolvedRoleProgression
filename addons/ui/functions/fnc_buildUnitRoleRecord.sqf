@@ -14,12 +14,10 @@
  */
 
 params ["_unit"];
-private _history = missionNamespace getVariable QGVARMAIN(history);
-if (isNil "_history") exitWith {
-    ERROR_1("Role history was empty", _history);
+private _myHistory = _unit getVariable QGVARMAIN(history);
+if (isNil {_myHistory}) exitWith {
+  ERROR_1("Unit had no role history",_unit);
 };
-private _uid = getPlayerUID player;
-private _myHistory = _history get _uid;
 private _roles = uiNamespace getVariable QEGVAR(roles,cache);
 private _order = uiNamespace getVariable QEGVAR(roles,order);
 if (isNil "_roles" || { isNil "_order" }) exitWith {
@@ -37,14 +35,14 @@ private _body = [_order, {
     TRACE_1("_role",_role);
     private _name = _role get "name";
     TRACE_1("_name",_name);
-    private _opsAsRole = _myHistory getOrDefault [_roleName, 0];
+    private _opsAsRole = _myHistory getOrDefault [_roleName, createHashMap] getOrDefault ["opCount", 0];
     TRACE_1("_opsAsRole",_opsAsRole);
     private _currText = format [_valueFormat, _name, _opsAsRole];
     if (_bodyStr == "") exitWith {
         _currText;
     };
 
-    format ["%1<br/>%2",_prev,_currText];
+    format ["%1<br/>%2",_bodyStr,_currText];
 }, ""] call FUNCMAIN(reduce);
 
 format ["%1<br/><br/>%2", _header, _body];

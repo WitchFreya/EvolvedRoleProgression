@@ -4,7 +4,6 @@ params ["_display", "_ctrl"];
 
 private _players = call BIS_fnc_listPlayers;
 private _rolesCache = uiNamespace getVariable QEGVAR(roles,cache);
-private _history = missionNamespace getVariable QGVARMAIN(history);
 
 private _fn_addUnit = {
     params ["_unit", "_ctrl", "_idx"];
@@ -15,8 +14,8 @@ private _fn_addUnit = {
     _ctrl lnbSetPicture [[_idx, 1], _cache get "icon"];
     _ctrl lnbSetData [[_idx, 1], _unitName];
     private _uid = getPlayerUID _unit;
-    private _rolesHistory = _history getOrDefault [_uid, createHashMap];
-    private _roleHistory = _rolesHistory getOrDefault [_role, 0];
+    private _rolesHistory = _unit getVariable QGVARMAIN(history);
+    private _roleHistory = _rolesHistory getOrDefault [_role, createHashMap] getOrDefault ["opCount", 0];
 
     // build the history tooltip
     private _msg = if (_roleHistory == 0) then {

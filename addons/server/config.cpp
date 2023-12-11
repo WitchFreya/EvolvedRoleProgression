@@ -10,7 +10,7 @@ class CfgPatches
         units[] = { };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "erp_arsenal", "inidbi2" };
+        requiredAddons[] = { "erp_arsenal", "erp_roles", "erp_db", "inidbi2" };
         skipWhenMissingDependencies = 1;
         author = QUOTE(AUTHOR);
         VERSION_CONFIG;

@@ -21,14 +21,19 @@
 TRACE_1("OnPlayerConnected",_this);
 params ["_id", "_uid", "_name", "_jip", "_owner", "_idStr"];
 
-private _history = missionNamespace getVariable QGVARMAIN(history);
-if (isNil "_history") exitWith {
-    ERROR_1("Unavailable history cache",_history);
+
+private _history = [_uid] call FUNC(buildHistoryForUID);
+
+// Player is available immediately in 3den so exit early
+if (!(isNil {player}) && {getPlayerUID player == _uid}) exitWith {
+  player setVariable [QGVARMAIN(history),_history,true];
 };
 
-private _unitHistory = _history get _uid;
-
-if (isNil "_unitHistory") then {
-    [_uid, _name] call FUNC(upsertPlayer);
-};
-
+// wait until a player is selected on servers
+[missionNamespace, "OnUserSelectedPlayer", {
+  _thisArgs params ["_history"];
+  params ["", "_playerUnit"];
+  TRACE_2("OnUserSelectedPlayer",_this,_thisArgs);
+  _playerUnit setVariable [QGVARMAIN(history), _history, true];
+  removeMissionEventHandler _thisID;
+}, [_history]] call CBA_fnc_addBISEventHandler;

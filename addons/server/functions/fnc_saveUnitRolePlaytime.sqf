@@ -15,13 +15,16 @@
  * Public: No
  */
 
-params ["_uid", "_playerName", ["_role", QUOTE(DEFAULT_ROLE)]];
+params [["_unit", objNull, [objNull]]];
 
-private _db = call FUNC(getDb);
+private _db = [_unit] call EFUNC(db,getUnitDb);
+private _name = name _unit;
+private _role = _unit getVariable [QGVARMAIN(role), QUOTE(DEFAULT_ROLE)];
+private _ops = _unit getVariable [QGVARMAIN(history), createHashMap]
+  getOrDefault [_role, createHashMap]
+  getOrDefault ["ops", []];
 
-if (!([_uid, _playerName] call FUNC(upsertPlayer))) exitWith {
-    ERROR_1("Couldn't create player", _db);
-};
+_ops pushBack ("getTimestamp" call _db);
 
-private _currentCount = ["read", [_uid, _role, 0]] call _db;
-["write", [_uid, _role, _currentCount + 1]] call _db;
+[getPlayerUID _unit, _name] spawn EFUNC(db,syncName);
+[_db, _role, "ops", _ops] call EFUNC(db,write);

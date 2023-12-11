@@ -18,16 +18,15 @@ params ["_display", "_ctrl"];
 
 private _roles = uiNamespace getVariable QEGVAR(roles,cache);
 private _unitRole = player getVariable [QGVARMAIN(role),QUOTE(DEFAULT_ROLE)];
-private _history = missionNamespace getVariable QGVARMAIN(history);
-private _myHistory = _history get (getPlayerUID player);
+private _myHistory = player getVariable QGVARMAIN(history);
 {
     private _role = _x;
     _ctrl lbAdd (_y get "name");
     _ctrl lbSetPicture [_forEachIndex, _y get "icon"];
     // TODO: # of players currently using role.
     _ctrl lbSetData [_forEachIndex, _role];
-    if (!isNil "_myHistory") then {
-        private _timesPlayed = _myHistory getOrDefault [_role, 0];
+    if !(isNil {_myHistory}) then {
+        private _timesPlayed = _myHistory getOrDefault [_role, createHashMap] getOrDefault ["opCount", 0];
         private _msg = if (_timesPlayed == 0) then {
             "You haven't played this role in an op before. If you're certified, why not give it a try?";
         } else {
