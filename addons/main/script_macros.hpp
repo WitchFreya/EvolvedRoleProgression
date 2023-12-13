@@ -25,3 +25,10 @@
 
 #define DEFAULT_ROLE Rifleman
 #define BASE_ROLE Default
+
+// Assertions
+
+// Why this isn't the default behavior of assert is beyond me.
+#define ASSERT_FALSE_EXIT(varAssertion,varMessage,varValue) \
+  ASSERT_FALSE(varAssertion,varMessage);                    \
+  if (varAssertion) exitWith {varValue}

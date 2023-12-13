@@ -8,7 +8,7 @@
  * 0: uid <STRING> - The UID of a player as returned by getPlayerUID
  *
  * Return Value:
- * <HASHMAP> { [roleName: string]: { ops: Date[]; opCount: number; certificationType: string };
+ * <HASHMAP> { [roleName: string]: { ops: Date[]; opCount: number; rank: string };
  *
  * Public: No
  */
@@ -23,13 +23,13 @@ private _cb_toRoleMap = {
   private _roleName = _x;
   private _legacyOpCount = READ_PROP("legacy_OpCount",0);
   private _ops = READ_PROP("ops",[]);
-  private _certificationType = READ_PROP("certificationType","Untrained");
+  private _rank = READ_PROP("rank","Untrained");
 
   private _opCount = _legacyOpCount + count _ops;
   [_roleName, createHashMapFromArray [
     ["ops", _ops],
     ["opCount", _opCount],
-    ["certificationType", _certificationType]
+    ["rank", _rank]
   ]];
 };
 

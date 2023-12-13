@@ -12,7 +12,7 @@
  * 2: Key <STRING> - If provided, it will return the value at the section>key. If nil, it will return all keys.
  *
  * Return Value:
- * Either a list of sections, a list of keys, or the data at a section.key.
+ * Either a list of sections, a list of keys, the data at a section.key, or nil if something went wrong.
  *
  * Public: No
  */
@@ -23,7 +23,7 @@ params [
     , ["_key", nil, [nil, ""]]
 ];
 
-ASSERT_DB(_db,"Database is unusable");
+ASSERT_DB(_db,"Database is unusable",nil);
 
 private _args = switch true do {
     case (isNil {_section}): {"getSections"};

@@ -2,7 +2,7 @@
 
 /*
  * Author: Maid
- * Change a unit's certification status.
+ * Change a unit's certification rank.
  *
  * Arguments:
  * 0: db <INIDBI2> - The db to write
@@ -20,7 +20,7 @@ params [
   ["_rank", "", [""]]
 ];
 
-ASSERT_DB(_db,"Invalid db");
+ASSERT_DB(_db,"Invalid db",false);
 
 if (_role == "" || {_rank == ""}) exitWith {
   ERROR_1("Invalid args"_this);
@@ -33,4 +33,4 @@ if !([_role, _rank] call EFUNC(roles,isValidRank)) exitWith {
   false;
 };
 
-[_db, _role, _rank] call FUNC(write);
+[_db, _role, "rank", _rank] call FUNC(write);

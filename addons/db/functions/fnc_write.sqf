@@ -24,13 +24,14 @@ params [
     , "_value"
 ];
 
-ASSERT_FALSE(isNil {_section},"Section cannot be empty");
-ASSERT_FALSE(isNil {_key},"Key cannot be empty");
-ASSERT_DB(_db,"Database is unusable");
+ASSERT_FALSE_EXIT(isNil {_section},"Section cannot be empty",false);
+ASSERT_FALSE_EXIT(isNil {_key},"Key cannot be empty",false);
+ASSERT_FALSE_EXIT(isNil {_value},"Value cannot be empty",false);
+ASSERT_DB(_db,"Database is unusable",false);
 
 private _now = "getTimestamp" call _db;
 if (!([_db] call FUNC(exists))) then {
-    ["write", ["$metadata", "$createdAt", _now]] call _db;
+  ["write", ["$metadata", "$createdAt", _now]] call _db;
 };
 
 // All writes wipe the cache—it's just more practical.

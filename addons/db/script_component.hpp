@@ -14,7 +14,7 @@
 
 #include "\x\erp\addons\main\script_macros.hpp"
 
-#define ASSERT_DB(db,msg) ASSERT_FALSE(isNil {"getVersion" call db},msg)
+#define ASSERT_DB(db,msg,varExit) ASSERT_FALSE_EXIT(isNil {"getVersion" call db},msg,varExit)
 
 // nil sucks
 #define NOTHING "$NOTHING"

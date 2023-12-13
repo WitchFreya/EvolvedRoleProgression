@@ -30,7 +30,7 @@ private _fnc_migratePlayerId = {
         private _count = [_rpDb, _uid, _role] call FUNC(read);
         ASSERT_TRUE(IS_NUMBER(_count),"Invalid value for role");
         [_myDb, _role, "legacy_opCount", _count] call FUNC(write);
-        [_myDb, _role, "certificationType", "Certified"] call FUNC(write);
+        [_myDb, _role, "rank", "Certified"] call FUNC(write);
     };
 
     { [_rpDb, _myDb, _uid, _x] spawn _fnc_migrateRole; } forEach _roles;
