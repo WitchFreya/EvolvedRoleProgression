@@ -1,1 +1,2 @@
 PREP(scanConfig);
+PREP(roleClasses);
