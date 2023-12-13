@@ -5,11 +5,16 @@
 #define EXPERT 2
 class CfgRoles
 {
+  // Any role extending from default with a scope of 2 will be available for selection.
   class Default
   {
     ITEM_META(1);
+    // Optional, will default to class name.
+    displayName = "Default";
     description = "The default role should not be available as a selectable item.";
     icon = "a3\ui_f\data\gui\cfg\respawnroles\assault_ca.paa";
+
+    // Will be applied and retained as if setUnitTrait was called
     class UnitTraits
     {
       Engineer = UNTRAINED;
@@ -21,11 +26,40 @@ class CfgRoles
       LoadCoef = 1;
     };
 
+    // Will be applied and retained as if setVariable was called on the unit namespace.
     class UnitVariables
     {
       ACE_isEngineer = UNTRAINED;
       ACE_Medical_MedicClass = UNTRAINED;
       ACE_Movement_LoadCoef = 1;
+    };
+
+    // Possible state of role; e.g. training status and ability
+    class CfgRanks
+    {
+      class Uncertified
+      {
+        // Optional, will default to class name.
+        displayName = "Uncertified";
+        description = "You will need to get training from someone with the Instructor rank to use this role.";
+        // TODO: find icons for ranks.
+        icon = QPATHTOEF(arsenal,data\sws_icon_howl_ca.paa);
+      };
+
+      class Probationary : Uncertified
+      {
+        description = "You are permitted to use this role in an op, but should keep the default kit for it unless you have express permission to change.";
+      };
+
+      class Certified : Uncertified
+      {
+        description = "You have demonstrated mastery of this role and are welcome to modify the kit to some degree based on your preferences.";
+      };
+
+      class Instructor : Uncertified
+      {
+        description = "You have been recognized as a leader for this role and are welcome to provide instruction to others in how to perform it.";
+      };
     };
   };
 
