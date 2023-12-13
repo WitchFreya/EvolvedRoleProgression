@@ -17,11 +17,11 @@
 params ["_arr", "_cb", "_init"];
 
 if (isNil "_init") then {
-    _init = _arr select 0;
+  _init = _arr select 0;
 };
 
 {
-    _init = [_init, _x, _forEachIndex] call _cb;
+  _init = [_init, _x, _forEachIndex] call _cb;
 } forEach _arr;
 
 _init;
