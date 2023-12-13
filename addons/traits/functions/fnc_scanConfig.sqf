@@ -16,28 +16,27 @@
  * Public: No
  */
 
-params ["_rolesCache"];
-
+params ["_roles"];
 
 private _fnc_mapFromConfig = {
-    params ["_config"];
-    private _properties = configProperties [_config];
-    private _nameAndValues  = _properties apply {
-        private _name = configName _x;
-        private _value = _x call BIS_fnc_getCfgData;
-        [_name, _value];
-    };
-    createHashMapFromArray _nameAndValues;
+  params ["_config"];
+  private _properties = configProperties [_config];
+  private _nameAndValues  = _properties apply {
+    private _name = configName _x;
+    private _value = _x call BIS_fnc_getCfgData;
+    [_name, _value];
+  };
+  createHashMapFromArray _nameAndValues;
 };
 
-createHashMapFromArray (_rolesCache apply {
-    private _name = _x;
-    private _path = _y get "path";
-    private _traits = [_path >> "UnitTraits"] call _fnc_mapFromConfig;
-    private _variables = [_path >> "UnitVariables"] call _fnc_mapFromConfig;
-    private _map = createHashMapFromArray [
-        ["traits", _traits]
-        , ["variables", _variables]
-    ];
-    [_name, _map];
+createHashMapFromArray (_roles apply {
+  private _role = _x;
+  private _cfg = configFile >> "CfgRoles" >> _role;
+  private _traits = [_cfg >> "UnitTraits"] call _fnc_mapFromConfig;
+  private _variables = [_cfg >> "UnitVariables"] call _fnc_mapFromConfig;
+  private _map = createHashMapFromArray [
+    ["traits", _traits],
+    ["variables", _variables]
+  ];
+  [_role, _map];
 });

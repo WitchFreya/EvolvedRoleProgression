@@ -21,30 +21,29 @@ private _ctrlPanel = _display displayCtrl IDC_leftTabContent;
 
 if (_panelIDC != IDC_buttonRole) exitWith {};
 
-private _roles = uiNamespace getVariable [QEGVAR(roles,cache), createHashMap];
-private _order = uiNamespace getVariable [QEGVAR(roles,order), []];
+private _roleClassNames = call EFUNC(roles,classNames);
 
 TOGGLE_RIGHT_PANEL_HIDE;
 lbClear _ctrlPanel;
 
 {
-    private _entry = _roles getOrDefault [_x, createHashMap];
-	private _displayName = _entry get "name";
-	private _itemPicture = _entry get "icon";
+  private _roleConfig = configFile >> "CfgRoles" >> _x;
+	private _displayName = [_x] call EFUNC(roles,displayName);
+	private _itemPicture = [_x] call EFUNC(roles,icon);
 
-    private _lbAdd = _ctrlPanel lbAdd _displayName;
-    _ctrlPanel lbSetData [_lbAdd, _x];
-    _ctrlPanel lbSetPicture [_lbAdd, _itemPicture];
-    private _usage = format ["Select this item to get credit for running as %1 when an op ends.",
-        toLower _displayName
-    ];
-    _ctrlPanel lbSetTooltip [_lbAdd, _usage];
-} forEach _order;
+  private _lbAdd = _ctrlPanel lbAdd _displayName;
+  _ctrlPanel lbSetData [_lbAdd, _x];
+  _ctrlPanel lbSetPicture [_lbAdd, _itemPicture];
+  private _usage = format ["Select this item to get credit for running as %1 when an op ends.",
+    toLower _displayName
+  ];
+  _ctrlPanel lbSetTooltip [_lbAdd, _usage];
+} forEach _roleClassNames;
 
 // Because ACE calls leftPanelFilled before doing more changes to the layout, wait until they're done.
 [
-    { [QGVAR(leftPanelFilled), _this] call CBA_fnc_localEvent; },
-    [_display, _rightPanelIdc]
+  { [QGVAR(leftPanelFilled), _this] call CBA_fnc_localEvent; },
+  [_display, _rightPanelIdc]
 ] call CBA_fnc_execNextFrame;
 
 // i know

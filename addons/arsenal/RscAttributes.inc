@@ -21,7 +21,7 @@ class ace_arsenal_display
                 {
                     idc = IDC_buttonRole;
                     tooltip = "Role";
-                    text = QPATHTOF(data\sws_icon_howl_ca.paa);
+                    text = QPATHTOEF(common,data\sws_icon_howl_ca.paa);
                     y = QUOTE(180 * GRID_H);
                 };
             };

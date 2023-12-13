@@ -17,7 +17,7 @@
 
 private _diarySubject = "roles";
 if (!(player diarySubjectExists _diarySubject)) then {
-  player createDiarySubject [_diarySubject, "Roles", QPATHTOEF(arsenal,data\sws_icon_howl_ca.paa)];
+  player createDiarySubject [_diarySubject, "Roles", QPATHTOEF(common,data\sws_icon_howl_ca.paa)];
 };
 private _title = "[My Role History]";
 

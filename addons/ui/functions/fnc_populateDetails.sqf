@@ -2,9 +2,8 @@
 
 params ["_display", "_ctrlGroup", "_role"];
 
-private _description = _ctrlGroup controlsGroupCtrl IDC_RoleDescription;
+private _ctrl = _ctrlGroup controlsGroupCtrl IDC_RoleDescription;
 
-private _roleData = uiNamespace getVariable QEGVAR(roles,cache) get _role;
-
-TRACE_1("Setting description",_roleData);
-_description ctrlSetStructuredText parseText (_roleData get "description");
+private _description = [_role] call EFUNC(roles,description);
+TRACE_2("Describing role",_role,_description);
+_ctrl ctrlSetStructuredText (parseText _description);

@@ -26,7 +26,7 @@ private _roles = _filter configClasses (_config >> "CfgRoles") apply {
     private _description = (_x >> "description") call BIS_fnc_getCfgData;
 
 	private _path = _x;
-	private _icon = [_x, "icon", QPATHTOF(data\sws_icon_howl_ca.paa)] call BIS_fnc_returnConfigEntry;
+	private _icon = [_x, "icon", QPATHTOEF(common,data\sws_icon_howl_ca.paa)] call BIS_fnc_returnConfigEntry;
 	private _key = configName _x;
 	private _map = createHashMapFromArray [
 		["name", _name]

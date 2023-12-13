@@ -1,10 +1,9 @@
 #include "script_component.hpp"
 #include "XEH_PREP.hpp"
 
-private _rolesCache = uiNamespace getVariable QEGVAR(roles,cache);
-if (isNil "_rolesCache") exitWith {
-    ERROR_1("Could not find roles cache",_rolesCache);
-};
+private _roles = call EFUNC(roles,classNames);
 
-private _roleProperties = [_rolesCache] call FUNC(scanConfig);
+ASSERT_FALSE_EXIT(isNil {_roles},"Invalid roles cache",nil);
+
+private _roleProperties = [_roles] call FUNC(scanConfig);
 uiNamespace setVariable [QGVAR(roleProperties), compileFinal _roleProperties];

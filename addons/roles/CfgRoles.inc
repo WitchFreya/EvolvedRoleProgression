@@ -43,7 +43,7 @@ class CfgRoles
         displayName = "Uncertified";
         description = "You will need to get training from someone with the Instructor rank to use this role.";
         // TODO: find icons for ranks.
-        icon = QPATHTOEF(arsenal,data\sws_icon_howl_ca.paa);
+        icon = QPATHTOEF(common,data\sws_icon_howl_ca.paa);
       };
 
       class Probationary : Uncertified
@@ -68,7 +68,7 @@ class CfgRoles
     SCOPE(2);
     displayName = "Rifleman";
     description = "The rifleman is the core of the fireteam. Anything that does not come down to a special role is their purview, and they boast a slightly increased carrying capacity to support these tasks.";
-    icon = QPATHTOEF(arsenal,data\sws_icon_howl_ca.paa);
+    icon = QPATHTOEF(common,data\sws_icon_howl_ca.paa);
     class UnitTraits : UnitTraits
     {
       LoadCoef = 0.9;
