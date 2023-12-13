@@ -1,4 +1,4 @@
 PREP(scanConfig);
-PREP(roleClasses);
+PREP(classNames);
 PREP(isValidRole);
 PREP(isValidRank);
