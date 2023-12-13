@@ -3,3 +3,4 @@ PREPMAIN(caselessIn);
 PREPMAIN(noop);
 PREPMAIN(reduce);
 PREPMAIN(sum);
+PREPMAIN(pipe);
