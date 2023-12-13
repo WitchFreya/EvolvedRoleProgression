@@ -8,3 +8,4 @@ PREP(read);
 PREP(readOrDefault);
 PREP(sterilize);
 PREP(write);
+PREP(writeRank);
