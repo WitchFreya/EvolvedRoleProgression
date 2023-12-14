@@ -5,3 +5,4 @@ PREP(icon);
 PREP(isValidRank);
 PREP(isValidRole);
 PREP(scanConfig);
+PREP(unitRole);

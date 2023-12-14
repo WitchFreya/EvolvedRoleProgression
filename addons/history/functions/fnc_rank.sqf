@@ -14,5 +14,11 @@
  * Public: No
  */
 
-private _history = _this call FUNC(forRole);
+
+params [
+  ["_unit", objNull, [objNull]],
+  ["_role", "Rifleman", [""]]
+];
+
+private _history = [_unit, _role] call FUNC(forRole);
 _history getOrDefault ["rank", "Uncertified"];
