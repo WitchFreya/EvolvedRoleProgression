@@ -2,7 +2,7 @@
 
 /*
  * Author: Maid
- * Retrieve from the inidbi instance and cache if it's already been queried.
+ * Retrieve from the inidbi instance.
  *
  * See https://github.com/code34/inidbi2/blob/master/%40inidbi2/DOCUMENTATION.txt.
  *

@@ -2,7 +2,7 @@
 
 /*
  * Author: Maid
- * Retrieve from the inidbi instance and cache.
+ * Retrieve from the inidbi instance.
  *
  * See https://github.com/code34/inidbi2/blob/master/%40inidbi2/DOCUMENTATION.txt.
  *
@@ -26,15 +26,9 @@ params [
 ASSERT_DB(_db,"Database is unusable",nil);
 
 private _args = switch true do {
-    case (isNil {_section}): {"getSections"};
-    case (isNil {_key}): {["getKeys", _section]};
-    default {["read", [_section, _key, NOTHING]]};
+  case (isNil {_section}): {"getSections"};
+  case (isNil {_key}): {["getKeys", _section]};
+  default {["read", [_section, _key, NOTHING]]};
 };
 
-private _cacheValue = GVAR(cache) get _args;
-
-if (!isNil {_cacheValue}) exitWith {_cacheValue};
-private _value = _args call FUNC(sterilize) call _db call FUNC(desterilize);
-
-GVAR(cache) set [_args, _value];
-_value;
+_args call FUNC(sterilize) call _db call FUNC(desterilize);

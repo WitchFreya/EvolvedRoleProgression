@@ -13,4 +13,4 @@
  * Public: Yes
  */
 
-uiNamespace getVariable [QEGVAR(roles,order), []];
+uiNamespace getVariable [QGVAR(classNames), []];

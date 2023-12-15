@@ -2,7 +2,7 @@
 
 /*
  * Author: Maid
- * Write to the database and blow up the cache.
+ * Write to the database.
  *
  * See https://github.com/code34/inidbi2/blob/master/%40inidbi2/DOCUMENTATION.txt.
  *
@@ -34,13 +34,10 @@ if (!([_db] call FUNC(exists))) then {
   ["write", ["$metadata", "$createdAt", _now]] call _db;
 };
 
-// All writes wipe the cache—it's just more practical.
-GVAR(cache) = createHashMap;
-
 [_section, _key, _value] call FUNC(sterilize) params ["_safeSection", "_safeKey", "_safeValue"];
 
 if (!([_db, _safeSection, _safeKey] call FUNC(exists))) then {
-    ["write", [_safeSection, "$createdAt", _now]] call _db;
+  ["write", [_safeSection, "$createdAt", _now]] call _db;
 };
 
 ["write", [_safeSection, _safeKey, _safeValue]] call _db;
