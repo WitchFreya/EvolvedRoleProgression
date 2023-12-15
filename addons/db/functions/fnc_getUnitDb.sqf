@@ -26,5 +26,22 @@ if (_uid == "") exitWith {
   FUNCMAIN(noop);
 };
 
-private _dbName = format ["%1_%2", QGVARMAIN(data), _uid];
-[_dbName] call FUNC(getDb);
+private _dbNameFormat = QUOTE(DOUBLES(GVARMAIN(data),%1));
+
+switch (_uid) do {
+  case "": {
+    ERROR("UID cannot be empty");
+    FUNCMAIN(noop);
+  };
+  case "_SP_AI_": {
+    ERROR("Role history for AI is not suppported");
+    FUNCMAIN(noop);
+  };
+  case "_SP_PLAYER_": {
+    TRACE_1("Retrieving singleplayer for unit",_uid);
+    [format [_dbNameFormat,"SINGLEPLAYER"]] call FUNC(getDb);
+  };
+  default {
+    [format [_dbNameFormat, _uid]] call FUNC(getDb);
+  }
+};
