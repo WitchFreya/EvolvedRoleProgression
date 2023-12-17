@@ -21,10 +21,7 @@ if (_display isEqualTo displayNull) exitWith {
   TRACE_1("Display not found",IDD_RolesMenu);
 };
 
-private _ctrl = _display displayCtrl IDC_Edit;
-
-if (_ctrl isEqualTo controlnull) exitWith {
-  TRACE_2("Control not found",_IDD_RolesMenu,IDC_Edit);
-};
-
-_ctrl ctrlShow !GVAR(editing);
+private _editCtrl = _display displayCtrl IDC_Edit;
+private _playCtrl = _display displayCtrl IDC_OK;
+_playCtrl ctrlEnable false;
+_editCtrl ctrlShow !GVAR(editing);
