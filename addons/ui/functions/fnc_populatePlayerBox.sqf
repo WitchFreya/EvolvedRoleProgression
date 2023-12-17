@@ -9,8 +9,7 @@ private _fn_createRow = {
   _ctrl lnbAddRow ["", _name, ""];
   _ctrl lnbSetPicture [[_idx, 1], _picture];
   _ctrl lnbSetData [[_idx, 1], _data];
-  // TODO: examine why this doesn't work (nothing shows on hover)
-  _ctrl lnbSetTooltip [[_idx, 1], _tooltip];
+  _ctrl lnbSetTooltip [[_idx, 0], _tooltip];
 };
 
 private _fn_addUnit = {
