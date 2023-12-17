@@ -68,6 +68,16 @@ class ERP_Role_Menu
           colorDisabled[] = {1,1,1,0.25};
         };
 
+        class EditButton : ExitButton
+        {
+          idc = IDC_Edit;
+          onButtonClick = QUOTE(call FUNC(toggleEdit));
+          text = "a3\3den\data\displays\display3den\panelright\customcomposition_edit_ca.paa";
+          tooltip = "Edit";
+          x = QUOTE(POS_X(37));
+          size = QUOTE(POS_H(0.4));
+        };
+
         class PlayAsRoleButton : RscButton
         {
             idc = IDC_PlayButton;

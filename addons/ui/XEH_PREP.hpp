@@ -8,3 +8,4 @@ PREP(openRoleMenu);
 PREP(populateDetails);
 PREP(populatePlayerBox);
 PREP(populateRoleBox);
+PREP(toggleEdit);

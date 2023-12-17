@@ -23,3 +23,4 @@ private _playButtonCtrl = _display displayCtrl IDC_PlayButton;
 
 private _detailsGroup = _display displayCtrl IDC_RoleDetails;
 private _descriptionCtrl = _detailsGroup controlsGroupCtrl IDC_RoleDescription;
+GVAR(editing) = false;

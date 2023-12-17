@@ -28,6 +28,8 @@
 
 #define IDC_Title 1200
 #define IDC_PlayButton IDC_OK
+#define IDC_Exit IDC_CANCEL
+#define IDC_Edit 1203
 #define IDC_RolesList 1301
 #define IDC_RoleName 1400
 #define IDC_RoleDetails 1401
