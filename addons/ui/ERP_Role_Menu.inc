@@ -1,5 +1,6 @@
 class RscText;
 class RscButton;
+class RscShortcutButton;
 class RscPicture;
 class RscListBox;
 class RscListNBox;
@@ -52,6 +53,21 @@ class ERP_Role_Menu
     };
 
     class Controls {
+        class ExitButton : RscActivePicture
+        {
+          idc = IDC_CANCEL;
+          text = "DBUG\pictures\x.paa";
+          tooltip = "Close";
+          x = QUOTE(POS_X(38));
+          y = QUOTE(0);
+          w = QUOTE(POS_W(1));
+          h = QUOTE(POS_H(1));
+          size = QUOTE(POS_H(0.5));
+          color[] = {1,1,1,1};
+          colorActive[] = {1,1,1,0.8};
+          colorDisabled[] = {1,1,1,0.25};
+        };
+
         class PlayAsRoleButton : RscButton
         {
             idc = IDC_PlayButton;
