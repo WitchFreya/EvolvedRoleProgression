@@ -55,4 +55,5 @@ private _fn_addUnit = {
   [_x, _ctrl, _forEachIndex] call _fn_addUnit;
 } forEach _players;
 _ctrl lnbSetCurSelRow -1;
-[_ctrl, 1] lnbSortBy [];
+[_ctrl, 1] lnbSortBy ["TEXT"];
+[_ctrl, 0] lnbSortBy ["DATA"];
