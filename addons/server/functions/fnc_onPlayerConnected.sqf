@@ -21,6 +21,9 @@
 TRACE_1("OnPlayerConnected",_this);
 params ["_id", "_uid", "_name", "_jip", "_owner", "_idStr"];
 
+if (_name == "__SERVER__") exitWith {
+  TRACE_1("Dedicated server connection",_this);
+};
 
 private _history = [_uid] call FUNC(buildHistoryForUID);
 
