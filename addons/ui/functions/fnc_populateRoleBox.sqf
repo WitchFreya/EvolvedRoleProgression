@@ -25,7 +25,7 @@ private _unitRole = [player] call EFUNC(roles,unitRole);
   private _icon = [_role] call EFUNC(roles,icon);
   private _opCount = [player,_role] call EFUNC(history,opCount);
   private _tooltip = if (_opCount == 0) then {
-    "You haven't played this role in an op before. If you're certified, why not give it a try?";
+    "You haven't played this role in an op before. If you've been given training, why not give it a try?";
   } else {
     format ["You have played this role %1 times before.", _opCount];
   };
