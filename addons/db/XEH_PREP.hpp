@@ -7,5 +7,6 @@ PREP(migrateFromV1);
 PREP(read);
 PREP(readOrDefault);
 PREP(sterilize);
+PREP(syncName);
 PREP(write);
 PREP(writeRank);
