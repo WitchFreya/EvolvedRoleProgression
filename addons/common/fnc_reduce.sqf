@@ -16,8 +16,13 @@
 
 params ["_arr", "_cb", "_init"];
 
-if (isNil "_init") then {
+// use the first element as the accumulator
+if isNil {_init} then {
   _init = _arr select 0;
+  // avoid mutating the provided argument
+  private _newArr = +_arr;
+  _newArr deleteAt 0;
+  _arr = _newArr;
 };
 
 {
