@@ -39,7 +39,7 @@ workshop = [
   "1768992669", # inidb2
 ]
 parameters = [ # TODO: Figure out how to include this so it'll work for other contributors
-  "C:\\Users\\freya\\Documents\\Arma 3 - Other Profiles\\Maid\\missions\\Dev.VR\\mission.sqm",
+  "C:\\Users\\freya\\Documents\\Arma 3 - Other Profiles\\Maid\\missions\\ERP-Dev.vr\\mission.sqm",
 ]
 
 [hemtt.launch.noaceax]
