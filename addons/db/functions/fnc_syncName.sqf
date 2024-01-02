@@ -15,12 +15,12 @@
  */
 
 params [
-  ["_uid", "", [""]
-  , ["_name", "", [""]]
+  ["_uid", "", [""]],
+  ["_name", "", [""]]
 ];
 
 private _db = [_uid] call FUNC(getUnitDb);
 private _storedName = [_db, "$metadata", "playerName"] call FUNC(read);
-if (_storedName == _name) exitWith {TRACE_1("Name identical, staying",_name)};
+if (_storedName == _name) exitWith {TRACE_1("Name identical, staying",_name);};
 [_db, "$metadata", "playerName", _name] call FUNC(write);
 [call FUNC(getCoreDb), _uid, "name", _name] call FUNC(write);
