@@ -17,7 +17,7 @@
 params ["_control", "_curSel"];
 
 if (_curSel < 0) exitWith {};
-private _selectedRole = _control lbData _curSel;
+private _selectedRole = _control lnbData [_curSel, 0];
 TRACE_1("Selection changed",_selectedRole);
 
 private _rolesDisplay = ctrlParent _control;

@@ -20,9 +20,9 @@ private _ctrlPanel = _display displayCtrl IDC_leftTabContent;
 private _index = 0;
 
 for "_lbIndex" from 0 to (lbSize _ctrlPanel) - 1 do {
-    if ((_ctrlPanel lbData _lbIndex) == _role) exitWith {
-        _index = _lbIndex;
-    };
+  if ((_ctrlPanel lnbData [_lbIndex, 0]) == _role) exitWith {
+    _index = _lbIndex;
+  };
 };
 
 _ctrlPanel lbSetCurSel _index;

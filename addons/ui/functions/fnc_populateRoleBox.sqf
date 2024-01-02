@@ -19,30 +19,45 @@ params ["_display", "_ctrl"];
 private _roles = call EFUNC(roles,classNames);
 private _unitRole = [player] call EFUNC(roles,unitRole);
 
+private _totalOps = [player] call EFUNC(history,opCount);
+
 {
   private _role = _x;
   private _roleName = [_role] call EFUNC(roles,displayName);
   private _icon = [_role] call EFUNC(roles,icon);
   private _opCount = [player,_role] call EFUNC(history,opCount);
-  private _tooltip = if (_opCount == 0) then {
-    "You haven't played this role in an op before. If you've been given training, why not give it a try?";
-  } else {
-    format ["You have played this role %1 times before.", _opCount];
-  };
+  private _rank = [player,_role] call EFUNC(history,rank);
+  private _rankCfg = configFile >> "CfgRoles" >> _role >> "CfgRanks" >> _rank;
+  private _rankName = (_rankCfg >> "displayName") call BIS_fnc_getCfgData;
+  private _rankPicture = (_rankCfg >> "icon") call BIS_fnc_getCfgData;
 
-  // TODO: # of players currently using role.
-  _ctrl lbAdd _roleName;
-  _ctrl lbSetPicture [_forEachIndex, _icon];
-  _ctrl lbSetData [_forEachIndex, _role];
-  _ctrl lbSetTooltip [_forEachIndex, _tooltip];
+  private _tooltipBase = format [
+    "%1 (%2) - Ops as Role: %3/%4",
+    _roleName,
+    _rankName,
+    _opCount,
+    _totalOps
+  ];
+
+  private _tooltip = _tooltipBase + (if (_rank == "Uncertified") then {
+    ": You should get training on this role before playing it."
+  } else {""});
+
+  _ctrl lnbAddRow [_roleName, ""];
+  _ctrl lnbSetPicture [[_forEachIndex, 0], _icon];
+  _ctrl lnbSetData [[_forEachIndex, 0], _role];
+  _ctrl lnbSetTooltip [[_forEachIndex, 0], _tooltip];
+
+  _ctrl lnbSetData [[_forEachIndex, 1], _rank];
+  _ctrl lnbSetPicture [[_forEachIndex, 1], _rankPicture];
 } forEach _roles;
 
-_ctrl lbSortBy [];
+[_ctrl, 0] lnbSortBy ["TEXT"];
 
 for '_i' from 0 to (lbSize _ctrl) - 1 do {
-  private _role = _ctrl lbData _i;
+  private _role = _ctrl lnbData [_i, 0];
   if (_role == _unitRole) exitWith {
     _display setVariable [QGVAR(selectedRole),_role];
-    _ctrl lbSetCurSel _i;
+    _ctrl lnbSetCurSelRow _i;
   };
 };

@@ -95,7 +95,7 @@ class ERP_Role_Menu
       colorDisabled[] = {0.86,0.89,0.93,1};
     };
 
-    class RolesList : RscListBox
+    class RolesList : RscListNBox
     {
       idc = IDC_RolesList;
       x = QUOTE(POS_X(1.5));
@@ -103,6 +103,9 @@ class ERP_Role_Menu
       w = QUOTE(POS_W(11));
       h = QUOTE(POS_H(21));
       onLBSelChanged = QUOTE(_this call FUNC(onLBSelChanged));
+      columns[] = {0, 0.85};
+      drawSideArrows = 0;
+      disableOverflow = 1;
     };
 
     class RoleName : RscText
