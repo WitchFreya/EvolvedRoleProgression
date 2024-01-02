@@ -35,5 +35,5 @@ if (!(isNil {player}) && {getPlayerUID player == _uid}) exitWith {
   params ["", "_playerUnit"];
   TRACE_2("OnUserSelectedPlayer",_this,_thisArgs);
   _playerUnit setVariable [QGVARMAIN(history), _history, true];
-  removeMissionEventHandler _thisID;
+  removeMissionEventHandler ["OnUserSelectedPlayer", _thisID];
 }, [_history]] call CBA_fnc_addBISEventHandler;
