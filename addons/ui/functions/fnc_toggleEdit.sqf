@@ -8,11 +8,14 @@
  * 0: Control <OBJECT>
  *
  * Return Value:
- * Diary record created <OBJECT>
+ * None
  *
  * Public: No
  */
 
+hint "Editing not yet supported, ask Maid to adjust certs manually.";
+
+if (true) exitWith {INFO("Exiting early until I can get edit mode working.")};
 GVAR(editing) = !GVAR(editing);
 
 private _display = findDisplay IDD_RolesMenu;

@@ -147,7 +147,7 @@ class ERP_Role_Menu
       y = QUOTE(POS_Y(2));
       w = QUOTE(POS_W(11));
       h = QUOTE(POS_H(21));
-      columns[] = {0, 0, 0.95};
+      columns[] = {0, 0.1, 0.85};
       drawSideArrows = 0;
       disableOverflow = 1;
     };
