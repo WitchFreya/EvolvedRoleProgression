@@ -23,7 +23,7 @@ private _cb_toRoleMap = {
   #define READ_PROP(varProp,varDefault) [_db, _role, varProp, varDefault] call EFUNC(db,readOrDefault)
   private _legacyOpCount = READ_PROP("legacy_OpCount",0);
   private _ops = READ_PROP("ops",[]);
-  private _rank = READ_PROP("rank","Untrained");
+  private _rank = READ_PROP("rank","Uncertified");
   #undef READ_PROP
 
   private _opCount = _legacyOpCount + count _ops;
