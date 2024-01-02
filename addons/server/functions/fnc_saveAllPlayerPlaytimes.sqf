@@ -17,7 +17,4 @@ private _players = call BIS_fnc_listPlayers;
 {
   [_x] spawn FUNC(saveUnitRolePlaytime);
 } forEach _players;
-{
-  private _history = [getPlayerUID _x] call FUNC(buildHistoryForUID);
-  player setVariable [QGVARMAIN(history),_history,true];
-} forEach _players;
+

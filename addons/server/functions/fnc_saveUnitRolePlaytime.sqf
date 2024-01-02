@@ -27,4 +27,10 @@ private _ops = _unit getVariable [QGVARMAIN(history), createHashMap]
 _ops pushBack ("getTimestamp" call _db);
 
 [getPlayerUID _unit, _name] spawn EFUNC(db,syncName);
-[_db, _role, "ops", _ops] call EFUNC(db,write);
+private _updateSuccessful = [_db, _role, "ops", _ops] call EFUNC(db,write);
+if !(_updateSuccessful) exitWith {
+  ERROR_3("Could not update",_name,_role,_ops);
+};
+
+private _history = [getPlayerUID _unit] call FUNC(buildHistoryForUID);
+[QGVARMAIN(saved), [_history], _unit] call CBA_fnc_targetEvent;
