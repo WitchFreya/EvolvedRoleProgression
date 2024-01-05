@@ -17,7 +17,7 @@
 params ["_control", "_curSel"];
 
 if (_curSel < 0) exitWith {};
-private _selectedRole = _control lnbData [_curSel, 0];
+private _selectedRole = _control lbData _curSel;
 TRACE_1("Selection changed",_selectedRole);
 private _currentRole = ace_arsenal_center getVariable [QGVARMAIN(role), QUOTE(DEFAULT_ROLE)];
 
