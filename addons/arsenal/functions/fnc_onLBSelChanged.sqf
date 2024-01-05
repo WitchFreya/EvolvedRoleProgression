@@ -16,8 +16,8 @@
  */
 
 if (ace_arsenal_currentLeftPanel != IDC_buttonRole) exitWith {
-    TRACE_1("not ours, calling raw",ace_arsenal_currentLeftPanel);
-    _this call ace_arsenal_fnc_onSelChangedLeft;
+  TRACE_1("not ours, calling raw",ace_arsenal_currentLeftPanel);
+  _this call ace_arsenal_fnc_onSelChangedLeft;
 };
 
 [QGVAR(onSelChangedLeft), _this] call CBA_fnc_localEvent;
