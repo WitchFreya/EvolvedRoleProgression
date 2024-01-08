@@ -2,7 +2,7 @@
 
 /*
  * Author: Maid
- * Build role history for a single unit by UID.
+ * Build role history for a single UID.
  *
  * Arguments:
  * 0: uid <STRING> - The UID of a player as returned by getPlayerUID
@@ -13,8 +13,9 @@
  * Public: No
  */
 
-
-params ["_uid"];
+params [
+  ["_uid", "", [""]]
+];
 
 private _db = [_uid] call EFUNC(db,getUnitDb);
 
@@ -37,6 +38,4 @@ private _cb_toRoleMap = {
 private _roles = call EFUNC(roles,classNames);
 private _history = createHashMapFromArray (_roles apply _cb_toRoleMap);
 
-
-TRACE_1("History built",_history);
-_history;
+[QGVAR(uidHistory), [_uid, _history]] call CBA_fnc_globalEvent;

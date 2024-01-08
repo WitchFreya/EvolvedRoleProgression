@@ -15,8 +15,12 @@
  */
 
 params [
-  ["_unit", objNull, [objNull]],
-  ["_role", nil, ["",nil]]
+  "_unit"
 ];
 
-[_unit] call FUNC(get) getOrDefault [_role, createHashMap];
+if !(local _unit) exitWith {};
+if !(isNil {_unit getVariable QGVAR(history)}) exitWith {
+  TRACE_1("Unit history is intact, continuing",_unit);
+};
+
+[QEGVAR(db,buildHistory), [getPlayerUID player]] call CBA_fnc_serverEvent;

@@ -4,17 +4,17 @@
 
 class CfgPatches
 {
-    class ADDON
-    {
-        name = QUOTE(COMPONENT);
-        units[] = { };
-        weapons[] = {};
-        requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { "erp_main", "erp_common", "inidbi2" };
-        skipWhenMissingDependencies = 1;
-        author = QUOTE(AUTHOR);
-        VERSION_CONFIG;
-    };
+  class ADDON
+  {
+    name = QUOTE(COMPONENT);
+    units[] = { };
+    weapons[] = {};
+    requiredVersion = REQUIRED_VERSION;
+    requiredAddons[] = { "erp_main", "erp_common", "erp_history", "erp_roles", "inidbi2" };
+    skipWhenMissingDependencies = 1;
+    author = QUOTE(AUTHOR);
+    VERSION_CONFIG;
+  };
 };
 
 

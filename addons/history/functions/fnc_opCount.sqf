@@ -23,11 +23,7 @@ if !(isNil {_role}) exitWith {
   [_unit, _role] call FUNC(forRole) getOrDefault ["opCount", 0];
 };
 
-ASSERT_FALSE_EXIT(_unit isEqualTo objNull,"Invalid args",0);
-
-private _history = _unit getVariable QGVARMAIN(history);
-
-ASSERT_FALSE_EXIT(isNil {_history},"Invalid history for unit",0);
+private _history = [_unit] call FUNC(get);
 
 [
   _history,

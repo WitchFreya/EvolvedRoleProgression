@@ -16,7 +16,7 @@
  */
 
 params [
-    ["_dbName", nil, [nil, ""]]
+  ["_dbName", nil, [nil, ""]]
 ];
 
 ASSERT_FALSE(isNil {_dbName},"Database name cannot be empty");

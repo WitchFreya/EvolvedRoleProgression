@@ -1,3 +1,4 @@
+PREP(recordOp);
 PREP(desterilize);
 PREP(exists);
 PREP(getCoreDb);
@@ -6,7 +7,9 @@ PREP(getUnitDb);
 PREP(migrateFromV1);
 PREP(read);
 PREP(readOrDefault);
+PREP(realTime);
 PREP(sterilize);
 PREP(syncName);
+PREP(uidHistory);
 PREP(write);
 PREP(writeRank);
