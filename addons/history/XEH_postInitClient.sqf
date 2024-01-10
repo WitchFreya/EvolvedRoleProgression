@@ -10,7 +10,7 @@
 [QEGVAR(db,uidHistory), {
   params ["_uid", "_history"];
   if (getPlayerUID player != _uid) exitWith {
-    TRACE_2("History for another unit",_history);
+    TRACE_3("History for another unit",getPlayerUID player,_uid,_history);
   };
   player setVariable [QGVARMAIN(history), _history, true];
 }] call CBA_fnc_addEventHandler;
