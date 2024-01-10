@@ -19,7 +19,10 @@ params [
 
 ASSERT_FALSE_EXIT(_unit isEqualTo objNull,"Invalid args","");
 private _myHistory = _unit getVariable QGVARMAIN(history);
-ASSERT_FALSE_EXIT(isNil {_myHistory},"Unit had no role history","");
+if (isNil {_myHistory}) exitWith {
+  ERROR_1("Unit missing role history",_unit);
+  "";
+};
 private _roles = call EFUNC(roles,classNames);
 
 ASSERT_FALSE_EXIT(isNil {_roles },"Invalid role data","");

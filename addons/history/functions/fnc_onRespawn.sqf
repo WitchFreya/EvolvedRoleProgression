@@ -2,11 +2,11 @@
 
 /*
  * Author: Maid
- * Retrieve the history data for a role.
+ * Handle unit respawning
  *
  * Arguments:
- * 0: unit <OBJECT> - The unit to collate the operational history for.
- * 1: role <STRING> - Optional, the role to limit the check to.
+ * 0: unit <OBJECT> - The unit respawning
+ * 1: corpse <OBJECT|objNull> - The unit's previous body.
  *
  * Return Value:
  * Role history object <HASHMAP> or an empty hashmap.

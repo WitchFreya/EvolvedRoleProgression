@@ -27,5 +27,8 @@ private _previousRecord = player getVariable QGVAR(myRoleHistoryRecord);
 if (!isNull _previousRecord) then {
   player removeDiaryRecord [_diarySubject, _previousRecord];
 };
+if (_body == "") exitWith {
+  ERROR_2("Skipped building map role record due to empty body",player,_body);
+};
 private _newRecord = player createDiaryRecord [_diarySubject, [_title, _body]];
 player setVariable [QGVAR(myRoleHistoryRecord), _newRecord];

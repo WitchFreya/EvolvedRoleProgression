@@ -3,6 +3,7 @@
 /*
  * Author: Maid
  * Retrieve the number of ops previously completed by a unit. Optionally, filter it to a single role.
+ *  Note: This includes legacy ops, which may not have a date associated with them.
  *
  * Arguments:
  * 0: unit <OBJECT> - The unit to collate the operational history for.
