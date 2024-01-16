@@ -1,8 +1,6 @@
 #include "script_component.hpp"
 
-#ifndef DEBUG_MODE_FULL
 if (is3DEN || { !isMultiplayer }) exitWith {};
-#endif
 
 params ["_units"];
 
@@ -11,17 +9,10 @@ private _valueFormat = "- <font color='#FACADE'>%1</font> - Deployment <font fac
 
 private _parseEntry = {
   params ["_unit"];
-  #ifndef DEBUG_MODE_FULL
-  if (!isPlayer _unit) exitWith {
-    ERROR_1("Provided unit was not a player",_unit);
-  };
-  #endif
-
   private _uid = getPlayerUID _unit;
   private _name = name _unit;
   private _role = _unit getVariable [QGVARMAIN(role), QUOTE(DEFAULT_ROLE)];
-  private _unitHistory = _unit getVariable [QGVARMAIN(history), createHashMap];
-  private _roleCount = _unitHistory getOrDefault ["opCount", 0];
+  private _roleCount = [_unit, _role] call EFUNC(history,opCount);
   private _text = format [_valueFormat, _name, _roleCount + 1];
   [_role, _text];
 };
