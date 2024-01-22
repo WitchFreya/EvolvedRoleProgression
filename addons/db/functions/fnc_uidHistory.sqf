@@ -36,6 +36,4 @@ private _cb_toRoleMap = {
 };
 
 private _roles = call EFUNC(roles,classNames);
-private _history = createHashMapFromArray (_roles apply _cb_toRoleMap);
-
-[QGVAR(uidHistory), [_uid, _history]] call CBA_fnc_globalEvent;
+createHashMapFromArray (_roles apply _cb_toRoleMap);
