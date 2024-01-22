@@ -30,15 +30,8 @@ try {
     _mut_ops pushBack _now;
     private _db = [_uid] call FUNC(getUnitDb);
     [_db, _role, "ops", _mut_ops] call EFUNC(db,write);
-
-    //--- Listen for updated history and pass to the saved event.
-    [QGVAR(uidHistory), {
-      params ["", "_history"];
-      _thisArgs params ["_unit"];
-      [QGVARMAIN(saved),[_history,time], _unit] call CBA_fnc_targetEvent;
-      [QGVAR(uidHistory), _thisId] call CBA_fnc_removeEventHandler;
-    }, _unit] call CBA_fnc_addEventHandlerArgs;
-    [_uid] spawn FUNC(uidHistory);
+    private _prevCount = [_unit, _role] call EFUNC(history,opCount);
+    [QGVARMAIN(saved), [_role, _prevCount + 1], _unit] call CBA_fnc_targetEvent;
   } forEach _players;
 } catch {
   [["Something went wrong while saving"], ["Please report this error on GitHub and attach the RPT file"]] remoteExec ["CBA_fnc_notify", _whoSaved];

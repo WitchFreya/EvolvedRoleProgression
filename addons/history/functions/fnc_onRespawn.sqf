@@ -23,4 +23,4 @@ if !(isNil {_unit getVariable QGVAR(history)}) exitWith {
   TRACE_1("Unit history is intact, continuing",_unit);
 };
 
-[QEGVAR(db,buildHistory), [getPlayerUID player]] call CBA_fnc_serverEvent;
+[QEGVAR(db,buildHistory), [getPlayerUID _unit, _unit]] call CBA_fnc_serverEvent;
