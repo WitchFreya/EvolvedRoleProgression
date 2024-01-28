@@ -24,4 +24,5 @@ params [
 private _history = [_uid] call FUNC(uidHistory);
 
 TRACE_1(QUOTE(GVAR(buildHistory) - BUILT),_history);
-[QGVAR(uidHistory), [_unit, _history]] call CBA_fnc_globalEvent;
+//--- By using the UID + JIP it should overwrite if this function gets called again
+[QGVAR(uidHistory), [_unit, _history], _uid] call CBA_fnc_globalEventJIP;
