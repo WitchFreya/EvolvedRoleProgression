@@ -1,6 +1,7 @@
 #include "script_component.hpp"
 
 [QGVARMAIN(saved), FUNC(onSaved)] call CBA_fnc_addEventHandler;
+[QGVARMAIN(saveStart), FUNC(onSaveStart)] call CBA_fnc_addEventHandler;
 
 if (is3DEN) exitWith {};
 
