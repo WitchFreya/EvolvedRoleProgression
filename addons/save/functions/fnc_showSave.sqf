@@ -34,7 +34,7 @@ private _numberFormat = "<t font='LCD14' color='#50C878' size='1.5' align='right
     ["Role", _titleFormat, 4],
     [toUpper _roleName, _valueFormat, 7],
     ["Operations as Role", _smallTitleFormat, 4],
-    [format ["%1", _count], _numberFormat, 35]
+    [str _count, _numberFormat, 35]
   ],
   0, safeZoneY + safeZoneH / 2,
   _rootFormat
