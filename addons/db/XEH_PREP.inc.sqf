@@ -3,7 +3,6 @@ PREP(exists);
 PREP(getCoreDb);
 PREP(getDb);
 PREP(getUnitDb);
-PREP(migrateFromV1);
 PREP(onBuildHistory);
 PREP(read);
 PREP(readOrDefault);
