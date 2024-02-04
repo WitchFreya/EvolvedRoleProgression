@@ -21,7 +21,7 @@ private _db = [_uid] call EFUNC(db,getUnitDb);
 
 private _cb_toRoleMap = {
   private _role = _x;
-  #define READ_PROP(varProp,varDefault) [_db, _role, varProp, varDefault] call EFUNC(db,readOrDefault)
+  #define READ_PROP(varProp,varDefault) [_db, _role, varProp, varDefault] call EFUNC(db,read)
   private _legacyOpCount = READ_PROP("legacy_OpCount",0);
   private _ops = READ_PROP("ops",[]);
   private _rank = READ_PROP("rank","Uncertified");

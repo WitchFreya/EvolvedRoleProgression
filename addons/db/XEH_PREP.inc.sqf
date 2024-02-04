@@ -5,7 +5,6 @@ PREP(getDb);
 PREP(getUnitDb);
 PREP(onBuildHistory);
 PREP(read);
-PREP(readOrDefault);
 PREP(realTime);
 PREP(recordOp);
 PREP(sterilize);
