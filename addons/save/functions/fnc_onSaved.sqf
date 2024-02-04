@@ -14,5 +14,6 @@
  * Public: No
  */
 
+hintSilent "Saved!";
 _this call FUNC(showSave);
 [QEGVAR(db,buildHistory), [getPlayerUID player, player]] call CBA_fnc_serverEvent;
