@@ -21,8 +21,7 @@ params [
 
 ASSERT_FALSE(isNil {_dbName},"Database name cannot be empty");
 
-private _db = ["new", _dbName] call OO_INIDBI;
-
-ASSERT_FALSE(isNil {_db},"Db could not be created");
-
-_db;
+GVAR(databases) getOrDefaultCall [_dbName, {
+  TRACE_1("Creating new db or fetching existing",_dbName);
+  ["new", _dbName] call OO_INIDBI;
+}, true];
