@@ -32,3 +32,6 @@
 #define ASSERT_FALSE_EXIT(varAssertion,varMessage,varValue) \
   ASSERT_FALSE(varAssertion,varMessage);                    \
   if (varAssertion) exitWith {varValue}
+
+#define TRUE 1
+#define FALSE 0
