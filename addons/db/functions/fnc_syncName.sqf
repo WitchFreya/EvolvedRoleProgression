@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+TRACE_1(QGVAR(syncName),_this);
+
 /*
  * Author: Maid
  * Update the stored name of a user.
