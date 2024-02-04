@@ -7,6 +7,7 @@ PREP(onBuildHistory);
 PREP(read);
 PREP(realTime);
 PREP(recordOp);
+PREP(recordOpForUnit);
 PREP(sterilize);
 PREP(syncName);
 PREP(uidHistory);
