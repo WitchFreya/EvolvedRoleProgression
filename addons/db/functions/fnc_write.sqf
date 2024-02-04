@@ -27,7 +27,6 @@ params [
 ASSERT_FALSE_EXIT(isNil {_section},"Section cannot be empty",false);
 ASSERT_FALSE_EXIT(isNil {_key},"Key cannot be empty",false);
 ASSERT_FALSE_EXIT(isNil {_value},"Value cannot be empty",false);
-ASSERT_DB(_db,"Database is unusable",false);
 
 private _now = "getTimestamp" call _db;
 if (!([_db] call FUNC(exists))) then {

@@ -20,8 +20,6 @@ params [
   ["_rank", "", [""]]
 ];
 
-ASSERT_DB(_db,"Invalid db",false);
-
 if (_role == "" || {_rank == ""}) exitWith {
   ERROR_1("Invalid args",_this);
   false;
