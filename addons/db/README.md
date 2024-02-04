@@ -7,7 +7,7 @@ The purpose of this addon is to abstract database access into a single point of 
 **History**
 Construct a role history for a unit.
 Request: `erp_db_buildHistory(uid: string)`
-Response: `erp_db_uidHistory(uid: string, history: hashmap)`
+Response: `erp_db_uidHistory(history: hashmap)`
 
 Update the name of a unit.
 Request: `erp_db_updateName(uid: string, name: string)`
