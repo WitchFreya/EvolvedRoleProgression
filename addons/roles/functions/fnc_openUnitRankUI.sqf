@@ -22,6 +22,10 @@ params [
   "_onConfirm"
 ];
 
+if (isNil {_target getVariable QGVARMAIN(history)}) exitWith {
+  ["Target must be a player with a history"] call ace_zeus_fnc_showMessage;
+};
+
 private _fnc_updateRank = {
   params ["_changes", "_target"];
   private _newChanges = _changes select {
