@@ -24,6 +24,9 @@ if (canSuspend) exitWith { [FUNC(moduleAdjustRank), _this] call CBA_fnc_directCa
 
 params ["_logic"];
 
+// Run just for Zeus
+if !(local _logic) exitWith {};
+
 private _target = attachedTo _logic;
 deleteVehicle _logic;
 
@@ -34,7 +37,6 @@ if (isNull _target) exitWith {
 if !(alive _target) exitWith {
   ["Target unit must be alive"] call ace_zeus_fnc_showMessage;
 };
-
 
 if (driver _target isEqualTo _target) then {
   [_target] call FUNC(openUnitRankUI);

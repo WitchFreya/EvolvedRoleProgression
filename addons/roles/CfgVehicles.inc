@@ -9,7 +9,7 @@ class CfgVehicles {
     category = "ERP_Utility";
     function = QFUNC(moduleAdjustRank);
     functionPriority = 10;
-    isGlobal = MODULE_isGlobal_SERVER;
+    isGlobal = MODULE_isGlobal_GLOBAL;
     isDisposable = FALSE;
     curatorCanAttach = TRUE;
   };

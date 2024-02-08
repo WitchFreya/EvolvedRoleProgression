@@ -2,7 +2,7 @@
 
 //--- Request and receive server to construct build history
 [QEGVAR(db,uidHistory), {
-  params ["_history"];
+  params ["_unit", "_history"];
   _unit setVariable [QGVARMAIN(history), _history, true];
 }] call CBA_fnc_addEventHandler;
 [QEGVAR(db,buildHistory), [getPlayerUID player, player]] call CBA_fnc_serverEvent;
