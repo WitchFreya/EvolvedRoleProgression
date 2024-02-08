@@ -12,10 +12,6 @@ url = "https://github.com/WitchFreya/EvolvedRoleProgression"
 include = ["logo_textless_ca.paa"]
 exclude = ["*.inc", "*.md"]
 
-[asc]
-exclude = [".inc.sqf"] # will be unnecessary in hemtt's next release
-
-
 [hemtt.launch.default]
 workshop = [
   # dependencies
