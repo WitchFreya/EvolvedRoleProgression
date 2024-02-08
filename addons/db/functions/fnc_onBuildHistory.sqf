@@ -24,4 +24,4 @@ params [
 private _history = [_uid] call FUNC(uidHistory);
 
 TRACE_3(QUOTE(GVAR(buildHistory) - BUILT),_unit,_uid,_history);
-[QGVAR(uidHistory), [_history], _unit] call CBA_fnc_targetEvent;
+[QGVAR(uidHistory), [_unit, _history], _unit] call CBA_fnc_targetEvent;
