@@ -14,15 +14,15 @@ if (!hasInterface) exitWith {};
 
 // Alt+J - Open Role Menu
 [COMPONENT_NAME, QGVAR(openRoleMenu), LLSTRING(OpenRoleMenu),
-    // On Press
-    {
-        call FUNC(openRoleMenu);
-    },
-    // On Release
-    {
+  // On Press
+  {
 
-    },
-    [DIK_J, [NO_SHIFT, NO_CTRL, WITH_ALT]]
+  },
+  // On Release
+  {
+    call FUNC(openRoleMenu);
+  },
+  [DIK_J, [NO_SHIFT, NO_CTRL, WITH_ALT], false, nil, true]
 ] call CBA_fnc_addKeybind;
 
 #undef WITH_SHIFT
