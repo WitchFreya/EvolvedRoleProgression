@@ -39,7 +39,7 @@ private _totalOps = [player] call EFUNC(history,opCount);
     _totalOps
   ];
 
-  private _tooltip = _tooltipBase + ["", ": You should get training on this role before playing it."] select (_rank == "Uncertified");
+  private _tooltip = _tooltipBase + (["", ": You should get training on this role before playing it."] select (_rank == "Uncertified"));
 
   _ctrl lnbAddRow [_roleName, ""];
   _ctrl lnbSetPicture [[_forEachIndex, 0], _icon];

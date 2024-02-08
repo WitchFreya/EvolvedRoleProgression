@@ -39,6 +39,8 @@ class CfgRoles
     {
       class Uncertified
       {
+        // If all ranks are listed, ordinal controls their 'level', e.g. ordinal = 0 is lower than ordinal = 1;
+        ordinal = 0;
         // Optional, will default to class name.
         displayName = "Uncertified";
         description = "You will need to get training from someone with the Instructor rank to use this role.";
@@ -48,6 +50,7 @@ class CfgRoles
 
       class Probationary : Uncertified
       {
+        ordinal = 1;
         displayName = "Probationary";
         description = "You are permitted to use this role in an op, but should keep the default kit for it unless you have express permission to change.";
         icon = "a3\missions_f_exp\data\img\lobby\ui_campaign_lobby_icon_player_connected_ca.paa";
@@ -55,6 +58,7 @@ class CfgRoles
 
       class Certified : Uncertified
       {
+        ordinal = 2;
         displayName = "Certified";
         description = "You have demonstrated mastery of this role and are welcome to modify the kit to some degree based on your preferences.";
         icon = "a3\missions_f_exp\data\img\lobby\ui_campaign_lobby_icon_player_ready_ca.paa";
@@ -62,6 +66,7 @@ class CfgRoles
 
       class Instructor : Uncertified
       {
+        ordinal = 4;
         displayName = "Instructor";
         description = "You have been recognized as a leader for this role and are welcome to provide instruction to others in how to perform it.";
         icon = "a3\missions_f_exp\data\img\lobby\ui_campaign_lobby_icon_player_host_ca.paa";

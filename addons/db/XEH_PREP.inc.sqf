@@ -4,6 +4,7 @@ PREP(getCoreDb);
 PREP(getDb);
 PREP(getUnitDb);
 PREP(onBuildHistory);
+PREP(onUpdateRank);
 PREP(read);
 PREP(realTime);
 PREP(recordOp);
