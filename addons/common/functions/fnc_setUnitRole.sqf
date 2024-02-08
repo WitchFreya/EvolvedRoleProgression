@@ -18,6 +18,6 @@ private _oldRole = _unit getVariable QGVARMAIN(role);
 if (_oldRole == _newRole) exitWith {
     TRACE_2("Role already set",_unit,_newRole);
 };
-TRACE_1("Setting role", _this);
+TRACE_1("Setting role",_this);
 _unit setVariable [QGVARMAIN(role), _newRole, true];
 [QGVARMAIN(roleChanged), [_unit, _oldRole, _newRole]] call CBA_fnc_globalEvent;
