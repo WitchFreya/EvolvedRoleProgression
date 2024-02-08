@@ -12,6 +12,7 @@ class CfgPatches {
     requiredVersion = REQUIRED_VERSION;
     requiredAddons[] = {
       "ace_zeus"
+      , "zen_dialog"
       , "erp_main"
       , "erp_common"
     };
