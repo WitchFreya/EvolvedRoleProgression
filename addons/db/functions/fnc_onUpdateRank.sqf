@@ -32,3 +32,5 @@ private _db = [_uid] call FUNC(getUnitDb);
   ];
   [_db, _role, _rank] call FUNC(writeRank);
 } forEach _rankChanges;
+
+[QGVAR(buildHistory), [getPlayerUID _unit, _unit]] call CBA_fnc_localEvent;
