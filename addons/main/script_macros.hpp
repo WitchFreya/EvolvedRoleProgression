@@ -23,6 +23,9 @@
   META;                 \
   SCOPE(var0)
 
+#define NAME(var0) [ERP] var0
+#define QNAME(var0) QUOTE(NAME(var0))
+
 #define DEFAULT_ROLE Rifleman
 #define BASE_ROLE Default
 
@@ -35,3 +38,8 @@
 
 #define TRUE 1
 #define FALSE 0
+
+// Module Magic Numbers
+#define MODULE_isGlobal_SERVER 0
+#define MODULE_isGlobal_GLOBAL 1
+#define MODULE_isGlobal_GLOBAL_JIP 2
