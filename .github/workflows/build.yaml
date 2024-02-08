@@ -13,19 +13,22 @@ jobs:
     name: Build
     runs-on: windows-latest
     steps:
+      - name: Install Arma 3 Tools
+        uses: arma-actions/arma3-tools@master
+        with:
+          toolsUrl: ${{ secrets.A3_TOOLS_URL }}
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup HEMTT
         uses: arma-actions/hemtt@v1
-        with:
-          version: 'v1.10.2'
       - name: Run HEMTT build
         run: hemtt release
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: erp-${{ github.sha }}
           path: releases/erp-latest.zip
+          if-no-files-found: error
 
   release:
     name: Release
