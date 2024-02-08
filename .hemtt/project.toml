@@ -17,6 +17,7 @@ workshop = [
   # dependencies
   "450814997", # cba_a3
   "463939057", # ace
+  "1779063631", # zen
 
   # compats
   "2522638637", # ace arsenal extended
@@ -33,6 +34,8 @@ workshop = [
   # dependencies
   "450814997", # cba_a3
   "463939057", # ace
+  "1779063631", # zen
+  "2018593688", # zen ace compat
 
   # compats
   "2522638637", # ace arsenal extended
@@ -52,6 +55,8 @@ workshop = [
   # dependencies
   "450814997", # cba_a3
   "463939057", # ace
+  "1779063631", # zen
+  "2018593688", # zen ace compat
 
   # tools
   "2369477168", # advanced developer tools
@@ -65,6 +70,8 @@ workshop = [
   # dependencies
   "450814997", # cba_a3
   "463939057", # ace
+  "1779063631", # zen
+  "2018593688", # zen ace compat
 
   # tools
   "2369477168", # advanced developer tools
