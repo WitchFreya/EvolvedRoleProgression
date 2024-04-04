@@ -191,6 +191,10 @@ class CfgRoles
       CamouflageCoef = 0.8;
       UAVHacker = TRAINED;
     };
+
+    class UnitVariables : UnitVariables {
+      ACE_isEngineer = TRAINED;
+    };
   };
 
   class AntiarmorSpecialist : Default
