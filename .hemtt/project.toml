@@ -35,7 +35,6 @@ workshop = [
   "450814997", # cba_a3
   "463939057", # ace
   "1779063631", # zen
-  "2018593688", # zen ace compat
 
   # compats
   "2522638637", # ace arsenal extended
@@ -56,7 +55,6 @@ workshop = [
   "450814997", # cba_a3
   "463939057", # ace
   "1779063631", # zen
-  "2018593688", # zen ace compat
 
   # tools
   "2369477168", # advanced developer tools
@@ -71,7 +69,6 @@ workshop = [
   "450814997", # cba_a3
   "463939057", # ace
   "1779063631", # zen
-  "2018593688", # zen ace compat
 
   # tools
   "2369477168", # advanced developer tools
@@ -92,7 +89,6 @@ workshop = [
   "1858075458", # LAMBS_Danger
   "1876589191", # JM's Structures
   "2016312756", # opcan
-  "2018593688", # Zeus Enhanced - ACE3 Compatibility
   "2034363662", # Enhanced Movement Rework
   "2041057379", # A3 Thermal Improvement
   "2198339170", # Alternative Running
